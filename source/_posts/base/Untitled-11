@@ -1,0 +1,24 @@
+const p1 = new Promise(function(resolve, reject) {
+  setTimeout(() => {
+    resolve('p1');
+  }, 1000);
+});
+
+const p2 = new Promise(function(resolve, reject) {
+  setTimeout(() => {
+    resolve('p2');
+  }, 1000);
+});
+
+const p3 = new Promise(function(resolve, reject) {
+  setTimeout(() => {
+    resolve('p3');
+  }, 1000);
+});
+
+const p = Promise.all([p1, p2, p3]);
+p.then((val) => {
+  console.log('then:',val);
+}).catch((err) => {
+  console.log('catch:',err);
+})
