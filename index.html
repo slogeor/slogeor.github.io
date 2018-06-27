@@ -158,9 +158,9 @@
   
 
         
-        <!-- <!--a href="javascript:void(0)" class="archive-article-date">
+        <!-- <a href="javascript:void(0)" class="archive-article-date">
   	<time datetime="2018-06-26T13:20:24.640Z" itemprop="datePublished">2018-06-26</time>
-</a-->
+</a>
 
          -->
       </header>
@@ -202,9 +202,9 @@
     </div>
     <div class="article-info article-info-index">
       
-      <!--a href="javascript:void(0)" class="archive-article-date">
+      <a href="javascript:void(0)" class="archive-article-date">
   	<time datetime="2018-06-26T13:20:24.640Z" itemprop="datePublished">2018-06-26</time>
-</a-->
+</a>
 
       <div style="float: right; overflow: hidden;">
         
@@ -263,9 +263,9 @@
   
 
         
-        <!-- <!--a href="javascript:void(0)" class="archive-article-date">
+        <!-- <a href="javascript:void(0)" class="archive-article-date">
   	<time datetime="2018-06-26T13:20:24.639Z" itemprop="datePublished">2018-06-26</time>
-</a-->
+</a>
 
          -->
       </header>
@@ -339,9 +339,9 @@
     </div>
     <div class="article-info article-info-index">
       
-      <!--a href="javascript:void(0)" class="archive-article-date">
+      <a href="javascript:void(0)" class="archive-article-date">
   	<time datetime="2018-06-26T13:20:24.639Z" itemprop="datePublished">2018-06-26</time>
-</a-->
+</a>
 
       <div style="float: right; overflow: hidden;">
         
@@ -392,6 +392,103 @@
 
 
   
+    <article id="post-react/jsx" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/26/react/jsx/">React JSX</a>
+    </h1>
+  
+
+        
+        <!-- <a href="javascript:void(0)" class="archive-article-date">
+  	<time datetime="2018-06-26T13:20:24.637Z" itemprop="datePublished">2018-06-26</time>
+</a>
+
+         -->
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = &lt;h1&gt;hello, world&lt;/h1&gt;;</span><br></pre></td></tr></table></figure>
+<p>它是 JavaScript 的一种扩展语法，具有 JavaScript 的全部能力。</p>
+<p><strong>1.JSX中嵌入表达式</strong></p>
+<p>可以用花括号把任意的 JavaScript 表达式嵌入到 JSX 中</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = (</span><br><span class="line">  &lt;h1&gt;</span><br><span class="line">    hello, &#123; formatName(user) &#125;!</span><br><span class="line">  &lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">);</span></span><br></pre></td></tr></table></figure>
+<p><strong>2. JSX 也是一个表达式</strong></p>
+<p>babel 编译后，JSX 表达式就变成了常规的 JavaScript 对象，我们可以将 JSX 赋给变量。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getGreeting</span>(<span class="params">user</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (user) &#123;</span><br><span class="line">    <span class="keyword">return</span> &lt;h1&gt;Hello, &#123; formatName(user) &#125;!&lt;/h1&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> &lt;h1&gt;Hello, React!&lt;/h1&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>3.JSX指定属性值</strong></p>
+<p>可以用双引号指定字符串字面量作为属性值，也可以使用花括号嵌入 JavaScript 表达式作为属性值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = &lt;img tabIndex="0" src="user.img" user=&#123;formatName(user)&#125; /&gt;;</span><br></pre></td></tr></table></figure>
+<p><strong>4.JSX防止注入攻击</strong></p>
+<p>默认情况下，在渲染之前，React DOM 会格式化(escape)JSX中的所有值，从而保证用户无法注入任何应用之外的代码。</p>
+<p><strong>5.JSX表示对象</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = (</span><br><span class="line">  &lt;h1 className=<span class="string">"h1"</span>&gt;</span><br><span class="line">    Hello, &#123;formatName(user)&#125;!</span><br><span class="line">  &lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">);</span></span><br></pre></td></tr></table></figure>
+<p>babel编译后</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">"use strict"</span>;</span><br><span class="line"><span class="keyword">var</span> element = React.createElement(</span><br><span class="line">  <span class="string">"h1"</span>,</span><br><span class="line">  &#123; <span class="attr">className</span>: <span class="string">"h1"</span> &#125;,</span><br><span class="line">  <span class="string">"Hello, "</span>,</span><br><span class="line">  formatName(user),</span><br><span class="line">  <span class="string">"!"</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>简化的结构</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = &#123;</span><br><span class="line">  type: <span class="string">'h1'</span>,</span><br><span class="line">  props: &#123;</span><br><span class="line">    className: <span class="string">'h1'</span>,</span><br><span class="line">    children: <span class="string">`Hello, <span class="subst">$&#123;formatName(user)&#125;</span>!`</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>JSX 更接近 JavaScript，所以 React DOM 使用驼峰命名约定。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="javascript:void(0)" class="archive-article-date">
+  	<time datetime="2018-06-26T13:20:24.637Z" itemprop="datePublished">2018-06-26</time>
+</a>
+
+      <div style="float: right; overflow: hidden;">
+        
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list">
+			
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jsx</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+        
+	<!-- <div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			
+        		<li class="article-tag-list-item">
+        			<a href="/categories/react/" class="article-tag-list-link color1">react</a>
+        		</li>
+      		
+		</ul>
+	</div> -->
+
+
+      </div>
+      <!-- 
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/26/react/jsx/">展开全文 >></a>
+        </p>
+       -->
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-react/life-cycle" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -404,9 +501,9 @@
   
 
         
-        <!-- <!--a href="javascript:void(0)" class="archive-article-date">
+        <!-- <a href="javascript:void(0)" class="archive-article-date">
   	<time datetime="2018-06-26T13:20:24.637Z" itemprop="datePublished">2018-06-26</time>
-</a-->
+</a>
 
          -->
       </header>
@@ -461,9 +558,9 @@
     </div>
     <div class="article-info article-info-index">
       
-      <!--a href="javascript:void(0)" class="archive-article-date">
+      <a href="javascript:void(0)" class="archive-article-date">
   	<time datetime="2018-06-26T13:20:24.637Z" itemprop="datePublished">2018-06-26</time>
-</a-->
+</a>
 
       <div style="float: right; overflow: hidden;">
         
@@ -499,188 +596,6 @@
 
 
   
-    <article id="post-react/jsx" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/26/react/jsx/">React JSX</a>
-    </h1>
-  
-
-        
-        <!-- <!--a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.637Z" itemprop="datePublished">2018-06-26</time>
-</a-->
-
-         -->
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = &lt;h1&gt;hello, world&lt;/h1&gt;;</span><br></pre></td></tr></table></figure>
-<p>它是 JavaScript 的一种扩展语法，具有 JavaScript 的全部能力。</p>
-<p><strong>1.JSX中嵌入表达式</strong></p>
-<p>可以用花括号把任意的 JavaScript 表达式嵌入到 JSX 中</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = (</span><br><span class="line">  &lt;h1&gt;</span><br><span class="line">    hello, &#123; formatName(user) &#125;!</span><br><span class="line">  &lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">);</span></span><br></pre></td></tr></table></figure>
-<p><strong>2. JSX 也是一个表达式</strong></p>
-<p>babel 编译后，JSX 表达式就变成了常规的 JavaScript 对象，我们可以将 JSX 赋给变量。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getGreeting</span>(<span class="params">user</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (user) &#123;</span><br><span class="line">    <span class="keyword">return</span> &lt;h1&gt;Hello, &#123; formatName(user) &#125;!&lt;/h1&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> &lt;h1&gt;Hello, React!&lt;/h1&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>3.JSX指定属性值</strong></p>
-<p>可以用双引号指定字符串字面量作为属性值，也可以使用花括号嵌入 JavaScript 表达式作为属性值</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = &lt;img tabIndex="0" src="user.img" user=&#123;formatName(user)&#125; /&gt;;</span><br></pre></td></tr></table></figure>
-<p><strong>4.JSX防止注入攻击</strong></p>
-<p>默认情况下，在渲染之前，React DOM 会格式化(escape)JSX中的所有值，从而保证用户无法注入任何应用之外的代码。</p>
-<p><strong>5.JSX表示对象</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = (</span><br><span class="line">  &lt;h1 className=<span class="string">"h1"</span>&gt;</span><br><span class="line">    Hello, &#123;formatName(user)&#125;!</span><br><span class="line">  &lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">);</span></span><br></pre></td></tr></table></figure>
-<p>babel编译后</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">"use strict"</span>;</span><br><span class="line"><span class="keyword">var</span> element = React.createElement(</span><br><span class="line">  <span class="string">"h1"</span>,</span><br><span class="line">  &#123; <span class="attr">className</span>: <span class="string">"h1"</span> &#125;,</span><br><span class="line">  <span class="string">"Hello, "</span>,</span><br><span class="line">  formatName(user),</span><br><span class="line">  <span class="string">"!"</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>简化的结构</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = &#123;</span><br><span class="line">  type: <span class="string">'h1'</span>,</span><br><span class="line">  props: &#123;</span><br><span class="line">    className: <span class="string">'h1'</span>,</span><br><span class="line">    children: <span class="string">`Hello, <span class="subst">$&#123;formatName(user)&#125;</span>!`</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>JSX 更接近 JavaScript，所以 React DOM 使用驼峰命名约定。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <!--a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.637Z" itemprop="datePublished">2018-06-26</time>
-</a-->
-
-      <div style="float: right; overflow: hidden;">
-        
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list">
-			
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jsx</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        
-	<!-- <div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			
-        		<li class="article-tag-list-item">
-        			<a href="/categories/react/" class="article-tag-list-link color1">react</a>
-        		</li>
-      		
-		</ul>
-	</div> -->
-
-
-      </div>
-      <!-- 
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/26/react/jsx/">展开全文 >></a>
-        </p>
-       -->
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-question/webpack-entry" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/26/question/webpack-entry/">webpack找不到entry</a>
-    </h1>
-  
-
-        
-        <!-- <!--a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.636Z" itemprop="datePublished">2018-06-26</time>
-</a-->
-
-         -->
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="问题提示"><a href="#问题提示" class="headerlink" title="问题提示"></a>问题提示</h4><p>Module not found: Error: a dependency to an entry point is not allowed</p>
-<h4 id="问题出现"><a href="#问题出现" class="headerlink" title="问题出现"></a>问题出现</h4><p>webpack.config.js 配置如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">    //...</span><br><span class="line">    entry: &#123;</span><br><span class="line">        &quot;./home/index.js&quot;: &quot;./home/index.js&quot;,</span><br><span class="line">        &quot;./poi/index.js&quot;: &quot;./poi/index.js&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    //...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>./home/index.js 有如下代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">require(&quot;../poi/index.js&quot;);</span><br></pre></td></tr></table></figure>
-<p>执行 webpack 命令会报如下错</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ERROR in ./src/campass/scripts/pages/home/index.js</span><br><span class="line">Module not found: Error: a dependency to an entry point is not allowed</span><br></pre></td></tr></table></figure>
-<h4 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h4><p><code>./home/index.js</code> 不能 require 出现在 <code>module.exports</code> 里 entry 配置的文件</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <!--a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.636Z" itemprop="datePublished">2018-06-26</time>
-</a-->
-
-      <div style="float: right; overflow: hidden;">
-        
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list">
-			
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        
-	<!-- <div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			
-        		<li class="article-tag-list-item">
-        			<a href="/categories/question/" class="article-tag-list-link color4">question</a>
-        		</li>
-      		
-		</ul>
-	</div> -->
-
-
-      </div>
-      <!-- 
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/26/question/webpack-entry/">展开全文 >></a>
-        </p>
-       -->
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
     <article id="post-question/webpack-dev-server" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -693,9 +608,9 @@
   
 
         
-        <!-- <!--a href="javascript:void(0)" class="archive-article-date">
+        <!-- <a href="javascript:void(0)" class="archive-article-date">
   	<time datetime="2018-06-26T13:20:24.636Z" itemprop="datePublished">2018-06-26</time>
-</a-->
+</a>
 
          -->
       </header>
@@ -720,9 +635,9 @@
     </div>
     <div class="article-info article-info-index">
       
-      <!--a href="javascript:void(0)" class="archive-article-date">
+      <a href="javascript:void(0)" class="archive-article-date">
   	<time datetime="2018-06-26T13:20:24.636Z" itemprop="datePublished">2018-06-26</time>
-</a-->
+</a>
 
       <div style="float: right; overflow: hidden;">
         
@@ -769,42 +684,35 @@
 
 
   
-    <article id="post-question/npm" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-question/webpack-entry" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/26/question/npm/">npm发布失败</a>
+      <a class="article-title" href="/2018/06/26/question/webpack-entry/">webpack找不到entry</a>
     </h1>
   
 
         
-        <!-- <!--a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.635Z" itemprop="datePublished">2018-06-26</time>
-</a-->
+        <!-- <a href="javascript:void(0)" class="archive-article-date">
+  	<time datetime="2018-06-26T13:20:24.636Z" itemprop="datePublished">2018-06-26</time>
+</a>
 
          -->
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="错误重现"><a href="#错误重现" class="headerlink" title="错误重现"></a>错误重现</h4><ul>
-<li>npm 模块配置和正确</li>
-<li>npm publish <foldname></foldname></li>
-<li>报 npm ERR！Darwing 14.5.0</li>
-<li>错误截图</li>
-</ul>
-<p><img src="https://github.com/slogeor/images/blob/master/question/2016/node.package.jpg?raw=true" alt="img"></p>
-<h4 id="错误分析"><a href="#错误分析" class="headerlink" title="错误分析"></a>错误分析</h4><ul>
-<li>package.json 没有配置 repository 信息</li>
-<li>需要提供github地址即可</li>
-</ul>
-<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><ul>
-<li>需要提供一个唯一的package name</li>
-<li>配置正确的<a href="https://github.com/slogeor/node-package-slogeor/blob/master/package.json" target="_blank" rel="noopener">package.json</a></li>
-</ul>
+        <h4 id="问题提示"><a href="#问题提示" class="headerlink" title="问题提示"></a>问题提示</h4><p>Module not found: Error: a dependency to an entry point is not allowed</p>
+<h4 id="问题出现"><a href="#问题出现" class="headerlink" title="问题出现"></a>问题出现</h4><p>webpack.config.js 配置如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">    //...</span><br><span class="line">    entry: &#123;</span><br><span class="line">        &quot;./home/index.js&quot;: &quot;./home/index.js&quot;,</span><br><span class="line">        &quot;./poi/index.js&quot;: &quot;./poi/index.js&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    //...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>./home/index.js 有如下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">require(&quot;../poi/index.js&quot;);</span><br></pre></td></tr></table></figure>
+<p>执行 webpack 命令会报如下错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ERROR in ./src/campass/scripts/pages/home/index.js</span><br><span class="line">Module not found: Error: a dependency to an entry point is not allowed</span><br></pre></td></tr></table></figure>
+<h4 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h4><p><code>./home/index.js</code> 不能 require 出现在 <code>module.exports</code> 里 entry 配置的文件</p>
 
       
 
@@ -812,9 +720,9 @@
     </div>
     <div class="article-info article-info-index">
       
-      <!--a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.635Z" itemprop="datePublished">2018-06-26</time>
-</a-->
+      <a href="javascript:void(0)" class="archive-article-date">
+  	<time datetime="2018-06-26T13:20:24.636Z" itemprop="datePublished">2018-06-26</time>
+</a>
 
       <div style="float: right; overflow: hidden;">
         
@@ -823,7 +731,7 @@
 		<ul class="article-tag-list">
 			
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">npm</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
         		</li>
       		
 		</ul>
@@ -846,7 +754,7 @@
       </div>
       <!-- 
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/26/question/npm/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/06/26/question/webpack-entry/">展开全文 >></a>
         </p>
        -->
 
@@ -873,9 +781,9 @@
   
 
         
-        <!-- <!--a href="javascript:void(0)" class="archive-article-date">
+        <!-- <a href="javascript:void(0)" class="archive-article-date">
   	<time datetime="2018-06-26T13:20:24.635Z" itemprop="datePublished">2018-06-26</time>
-</a-->
+</a>
 
          -->
       </header>
@@ -890,9 +798,9 @@
     </div>
     <div class="article-info article-info-index">
       
-      <!--a href="javascript:void(0)" class="archive-article-date">
+      <a href="javascript:void(0)" class="archive-article-date">
   	<time datetime="2018-06-26T13:20:24.635Z" itemprop="datePublished">2018-06-26</time>
-</a-->
+</a>
 
       <div style="float: right; overflow: hidden;">
         
@@ -939,6 +847,98 @@
 
 
   
+    <article id="post-question/npm" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/26/question/npm/">npm发布失败</a>
+    </h1>
+  
+
+        
+        <!-- <a href="javascript:void(0)" class="archive-article-date">
+  	<time datetime="2018-06-26T13:20:24.635Z" itemprop="datePublished">2018-06-26</time>
+</a>
+
+         -->
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="错误重现"><a href="#错误重现" class="headerlink" title="错误重现"></a>错误重现</h4><ul>
+<li>npm 模块配置和正确</li>
+<li>npm publish <foldname></foldname></li>
+<li>报 npm ERR！Darwing 14.5.0</li>
+<li>错误截图</li>
+</ul>
+<p><img src="https://github.com/slogeor/images/blob/master/question/2016/node.package.jpg?raw=true" alt="img"></p>
+<h4 id="错误分析"><a href="#错误分析" class="headerlink" title="错误分析"></a>错误分析</h4><ul>
+<li>package.json 没有配置 repository 信息</li>
+<li>需要提供github地址即可</li>
+</ul>
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><ul>
+<li>需要提供一个唯一的package name</li>
+<li>配置正确的<a href="https://github.com/slogeor/node-package-slogeor/blob/master/package.json" target="_blank" rel="noopener">package.json</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="javascript:void(0)" class="archive-article-date">
+  	<time datetime="2018-06-26T13:20:24.635Z" itemprop="datePublished">2018-06-26</time>
+</a>
+
+      <div style="float: right; overflow: hidden;">
+        
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list">
+			
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">npm</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+        
+	<!-- <div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			
+        		<li class="article-tag-list-item">
+        			<a href="/categories/question/" class="article-tag-list-link color4">question</a>
+        		</li>
+      		
+		</ul>
+	</div> -->
+
+
+      </div>
+      <!-- 
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/26/question/npm/">展开全文 >></a>
+        </p>
+       -->
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-question/hexo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -951,9 +951,9 @@
   
 
         
-        <!-- <!--a href="javascript:void(0)" class="archive-article-date">
+        <!-- <a href="javascript:void(0)" class="archive-article-date">
   	<time datetime="2018-06-26T13:20:24.634Z" itemprop="datePublished">2018-06-26</time>
-</a-->
+</a>
 
          -->
       </header>
@@ -976,9 +976,9 @@
     </div>
     <div class="article-info article-info-index">
       
-      <!--a href="javascript:void(0)" class="archive-article-date">
+      <a href="javascript:void(0)" class="archive-article-date">
   	<time datetime="2018-06-26T13:20:24.634Z" itemprop="datePublished">2018-06-26</time>
-</a-->
+</a>
 
       <div style="float: right; overflow: hidden;">
         
@@ -1015,9 +1015,9 @@
   
 
         
-        <!-- <!--a href="javascript:void(0)" class="archive-article-date">
+        <!-- <a href="javascript:void(0)" class="archive-article-date">
   	<time datetime="2018-06-26T13:20:24.634Z" itemprop="datePublished">2018-06-26</time>
-</a-->
+</a>
 
          -->
       </header>
@@ -1042,9 +1042,9 @@
     </div>
     <div class="article-info article-info-index">
       
-      <!--a href="javascript:void(0)" class="archive-article-date">
+      <a href="javascript:void(0)" class="archive-article-date">
   	<time datetime="2018-06-26T13:20:24.634Z" itemprop="datePublished">2018-06-26</time>
-</a-->
+</a>
 
       <div style="float: right; overflow: hidden;">
         
