@@ -392,6 +392,103 @@
 
 
   
+    <article id="post-react/jsx" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/26/react/jsx/">React JSX</a>
+    </h1>
+  
+
+        
+        <!-- <a href="javascript:void(0)" class="archive-article-date">
+  	<time datetime="2018-06-26T13:20:24.637Z" itemprop="datePublished">2018-06-26</time>
+</a>
+
+         -->
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = &lt;h1&gt;hello, world&lt;/h1&gt;;</span><br></pre></td></tr></table></figure>
+<p>它是 JavaScript 的一种扩展语法，具有 JavaScript 的全部能力。</p>
+<p><strong>1.JSX中嵌入表达式</strong></p>
+<p>可以用花括号把任意的 JavaScript 表达式嵌入到 JSX 中</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = (</span><br><span class="line">  &lt;h1&gt;</span><br><span class="line">    hello, &#123; formatName(user) &#125;!</span><br><span class="line">  &lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">);</span></span><br></pre></td></tr></table></figure>
+<p><strong>2. JSX 也是一个表达式</strong></p>
+<p>babel 编译后，JSX 表达式就变成了常规的 JavaScript 对象，我们可以将 JSX 赋给变量。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getGreeting</span>(<span class="params">user</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (user) &#123;</span><br><span class="line">    <span class="keyword">return</span> &lt;h1&gt;Hello, &#123; formatName(user) &#125;!&lt;/h1&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> &lt;h1&gt;Hello, React!&lt;/h1&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>3.JSX指定属性值</strong></p>
+<p>可以用双引号指定字符串字面量作为属性值，也可以使用花括号嵌入 JavaScript 表达式作为属性值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = &lt;img tabIndex="0" src="user.img" user=&#123;formatName(user)&#125; /&gt;;</span><br></pre></td></tr></table></figure>
+<p><strong>4.JSX防止注入攻击</strong></p>
+<p>默认情况下，在渲染之前，React DOM 会格式化(escape)JSX中的所有值，从而保证用户无法注入任何应用之外的代码。</p>
+<p><strong>5.JSX表示对象</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = (</span><br><span class="line">  &lt;h1 className=<span class="string">"h1"</span>&gt;</span><br><span class="line">    Hello, &#123;formatName(user)&#125;!</span><br><span class="line">  &lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">);</span></span><br></pre></td></tr></table></figure>
+<p>babel编译后</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">"use strict"</span>;</span><br><span class="line"><span class="keyword">var</span> element = React.createElement(</span><br><span class="line">  <span class="string">"h1"</span>,</span><br><span class="line">  &#123; <span class="attr">className</span>: <span class="string">"h1"</span> &#125;,</span><br><span class="line">  <span class="string">"Hello, "</span>,</span><br><span class="line">  formatName(user),</span><br><span class="line">  <span class="string">"!"</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>简化的结构</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = &#123;</span><br><span class="line">  type: <span class="string">'h1'</span>,</span><br><span class="line">  props: &#123;</span><br><span class="line">    className: <span class="string">'h1'</span>,</span><br><span class="line">    children: <span class="string">`Hello, <span class="subst">$&#123;formatName(user)&#125;</span>!`</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>JSX 更接近 JavaScript，所以 React DOM 使用驼峰命名约定。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="javascript:void(0)" class="archive-article-date">
+  	<time datetime="2018-06-26T13:20:24.637Z" itemprop="datePublished">2018-06-26</time>
+</a>
+
+      <div style="float: right; overflow: hidden;">
+        
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list">
+			
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jsx</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+        
+	<!-- <div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			
+        		<li class="article-tag-list-item">
+        			<a href="/categories/react/" class="article-tag-list-link color1">react</a>
+        		</li>
+      		
+		</ul>
+	</div> -->
+
+
+      </div>
+      <!-- 
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/26/react/jsx/">展开全文 >></a>
+        </p>
+       -->
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-react/life-cycle" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -485,103 +582,6 @@
       <!-- 
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/06/26/react/life-cycle/">展开全文 >></a>
-        </p>
-       -->
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-react/jsx" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/26/react/jsx/">React JSX</a>
-    </h1>
-  
-
-        
-        <!-- <a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.637Z" itemprop="datePublished">2018-06-26</time>
-</a>
-
-         -->
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = &lt;h1&gt;hello, world&lt;/h1&gt;;</span><br></pre></td></tr></table></figure>
-<p>它是 JavaScript 的一种扩展语法，具有 JavaScript 的全部能力。</p>
-<p><strong>1.JSX中嵌入表达式</strong></p>
-<p>可以用花括号把任意的 JavaScript 表达式嵌入到 JSX 中</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = (</span><br><span class="line">  &lt;h1&gt;</span><br><span class="line">    hello, &#123; formatName(user) &#125;!</span><br><span class="line">  &lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">);</span></span><br></pre></td></tr></table></figure>
-<p><strong>2. JSX 也是一个表达式</strong></p>
-<p>babel 编译后，JSX 表达式就变成了常规的 JavaScript 对象，我们可以将 JSX 赋给变量。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getGreeting</span>(<span class="params">user</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (user) &#123;</span><br><span class="line">    <span class="keyword">return</span> &lt;h1&gt;Hello, &#123; formatName(user) &#125;!&lt;/h1&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> &lt;h1&gt;Hello, React!&lt;/h1&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>3.JSX指定属性值</strong></p>
-<p>可以用双引号指定字符串字面量作为属性值，也可以使用花括号嵌入 JavaScript 表达式作为属性值</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = &lt;img tabIndex="0" src="user.img" user=&#123;formatName(user)&#125; /&gt;;</span><br></pre></td></tr></table></figure>
-<p><strong>4.JSX防止注入攻击</strong></p>
-<p>默认情况下，在渲染之前，React DOM 会格式化(escape)JSX中的所有值，从而保证用户无法注入任何应用之外的代码。</p>
-<p><strong>5.JSX表示对象</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = (</span><br><span class="line">  &lt;h1 className=<span class="string">"h1"</span>&gt;</span><br><span class="line">    Hello, &#123;formatName(user)&#125;!</span><br><span class="line">  &lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">);</span></span><br></pre></td></tr></table></figure>
-<p>babel编译后</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">"use strict"</span>;</span><br><span class="line"><span class="keyword">var</span> element = React.createElement(</span><br><span class="line">  <span class="string">"h1"</span>,</span><br><span class="line">  &#123; <span class="attr">className</span>: <span class="string">"h1"</span> &#125;,</span><br><span class="line">  <span class="string">"Hello, "</span>,</span><br><span class="line">  formatName(user),</span><br><span class="line">  <span class="string">"!"</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>简化的结构</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = &#123;</span><br><span class="line">  type: <span class="string">'h1'</span>,</span><br><span class="line">  props: &#123;</span><br><span class="line">    className: <span class="string">'h1'</span>,</span><br><span class="line">    children: <span class="string">`Hello, <span class="subst">$&#123;formatName(user)&#125;</span>!`</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>JSX 更接近 JavaScript，所以 React DOM 使用驼峰命名约定。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.637Z" itemprop="datePublished">2018-06-26</time>
-</a>
-
-      <div style="float: right; overflow: hidden;">
-        
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list">
-			
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jsx</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        
-	<!-- <div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			
-        		<li class="article-tag-list-item">
-        			<a href="/categories/react/" class="article-tag-list-link color1">react</a>
-        		</li>
-      		
-		</ul>
-	</div> -->
-
-
-      </div>
-      <!-- 
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/26/react/jsx/">展开全文 >></a>
         </p>
        -->
 
@@ -769,6 +769,84 @@
 
 
   
+    <article id="post-question/upload" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/26/question/upload/">文件上传问题</a>
+    </h1>
+  
+
+        
+        <!-- <a href="javascript:void(0)" class="archive-article-date">
+  	<time datetime="2018-06-26T13:20:24.635Z" itemprop="datePublished">2018-06-26</time>
+</a>
+
+         -->
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>问题： JavaScript 解决文件上传后，不能再上传同名的文件<br>解决办法：document.getElementById(‘idSelector’).value = “”;</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="javascript:void(0)" class="archive-article-date">
+  	<time datetime="2018-06-26T13:20:24.635Z" itemprop="datePublished">2018-06-26</time>
+</a>
+
+      <div style="float: right; overflow: hidden;">
+        
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list">
+			
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">文件上传</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+        
+	<!-- <div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			
+        		<li class="article-tag-list-item">
+        			<a href="/categories/question/" class="article-tag-list-link color4">question</a>
+        		</li>
+      		
+		</ul>
+	</div> -->
+
+
+      </div>
+      <!-- 
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/26/question/upload/">展开全文 >></a>
+        </p>
+       -->
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-question/npm" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -861,20 +939,20 @@
 
 
   
-    <article id="post-question/upload" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-question/hexo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/26/question/upload/">文件上传问题</a>
+      <a class="article-title" href="/2018/06/26/question/hexo/">hexo入门</a>
     </h1>
   
 
         
         <!-- <a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.635Z" itemprop="datePublished">2018-06-26</time>
+  	<time datetime="2018-06-26T13:20:24.634Z" itemprop="datePublished">2018-06-26</time>
 </a>
 
          -->
@@ -882,7 +960,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>问题： JavaScript 解决文件上传后，不能再上传同名的文件<br>解决办法：document.getElementById(‘idSelector’).value = “”;</p>
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
       
 
@@ -891,40 +977,18 @@
     <div class="article-info article-info-index">
       
       <a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.635Z" itemprop="datePublished">2018-06-26</time>
+  	<time datetime="2018-06-26T13:20:24.634Z" itemprop="datePublished">2018-06-26</time>
 </a>
 
       <div style="float: right; overflow: hidden;">
         
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list">
-			
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">文件上传</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
         
-	<!-- <div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			
-        		<li class="article-tag-list-item">
-        			<a href="/categories/question/" class="article-tag-list-link color4">question</a>
-        		</li>
-      		
-		</ul>
-	</div> -->
-
 
       </div>
       <!-- 
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/26/question/upload/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/06/26/question/hexo/">展开全文 >></a>
         </p>
        -->
 
@@ -1013,70 +1077,6 @@
       <!-- 
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/06/26/question/gitignore/">展开全文 >></a>
-        </p>
-       -->
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-question/hexo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/26/question/hexo/">hexo入门</a>
-    </h1>
-  
-
-        
-        <!-- <a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.634Z" itemprop="datePublished">2018-06-26</time>
-</a>
-
-         -->
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.634Z" itemprop="datePublished">2018-06-26</time>
-</a>
-
-      <div style="float: right; overflow: hidden;">
-        
-
-        
-
-      </div>
-      <!-- 
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/26/question/hexo/">展开全文 >></a>
         </p>
        -->
 
