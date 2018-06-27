@@ -146,85 +146,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-question/brew" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/26/question/brew/">brew安装失败</a>
-    </h1>
-  
-
-        
-        <!-- <a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.633Z" itemprop="datePublished">2018-06-26</time>
-</a>
-
-         -->
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ brew cask search qq</span><br><span class="line">==&gt; Exact match</span><br><span class="line">qq</span><br><span class="line">==&gt; Partial matches</span><br><span class="line">qqbrowser qqinput qqmacmgr qqmusic</span><br><span class="line">➜  ~</span><br><span class="line">brew cask install qq</span><br><span class="line">Error: Cask &apos;qq&apos; definition is invalid: Bad header line: parse failed</span><br></pre></td></tr></table></figure>
-<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew update; brew cleanup; brew cask cleanup</span><br><span class="line">brew uninstall --force brew-cask; brew update</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.633Z" itemprop="datePublished">2018-06-26</time>
-</a>
-
-      <div style="float: right; overflow: hidden;">
-        
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list">
-			
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">brewcask</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        
-	<!-- <div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			
-        		<li class="article-tag-list-item">
-        			<a href="/categories/question/" class="article-tag-list-link color4">question</a>
-        		</li>
-      		
-		</ul>
-	</div> -->
-
-
-      </div>
-      <!-- 
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/26/question/brew/">展开全文 >></a>
-        </p>
-       -->
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
     <article id="post-question/codeopen" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -237,9 +158,9 @@
   
 
         
-        <!-- <a href="javascript:void(0)" class="archive-article-date">
+        <!-- <!--a href="javascript:void(0)" class="archive-article-date">
   	<time datetime="2018-06-26T13:20:24.633Z" itemprop="datePublished">2018-06-26</time>
-</a>
+</a-->
 
          -->
       </header>
@@ -258,9 +179,9 @@
     </div>
     <div class="article-info article-info-index">
       
-      <a href="javascript:void(0)" class="archive-article-date">
+      <!--a href="javascript:void(0)" class="archive-article-date">
   	<time datetime="2018-06-26T13:20:24.633Z" itemprop="datePublished">2018-06-26</time>
-</a>
+</a-->
 
       <div style="float: right; overflow: hidden;">
         
@@ -307,33 +228,29 @@
 
 
   
-    <article id="post-other/nrm" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-question/brew" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/26/other/nrm/">nrm -- NPM registry 管理工具</a>
+      <a class="article-title" href="/2018/06/26/question/brew/">brew安装失败</a>
     </h1>
   
 
         
-        <!-- <a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.632Z" itemprop="datePublished">2018-06-26</time>
-</a>
+        <!-- <!--a href="javascript:void(0)" class="archive-article-date">
+  	<time datetime="2018-06-26T13:20:24.633Z" itemprop="datePublished">2018-06-26</time>
+</a-->
 
          -->
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>通过 nrm 可以方便的查看和切换当前使用的registry。</p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g nrm</span><br></pre></td></tr></table></figure>
-<h3 id="查看-registry"><a href="#查看-registry" class="headerlink" title="查看 registry"></a>查看 registry</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">~ nrm ls</span><br><span class="line"></span><br><span class="line">npm ---- https:<span class="comment">//registry.npmjs.org/</span></span><br><span class="line">cnpm --- http:<span class="comment">//r.cnpmjs.org/</span></span><br><span class="line">* taobao - https:<span class="comment">//registry.npm.taobao.org/</span></span><br><span class="line">nj ----- https:<span class="comment">//registry.nodejitsu.com/</span></span><br><span class="line">rednpm - http:<span class="comment">//registry.mirror.cqupt.edu.cn/</span></span><br><span class="line">npmMirror  https:<span class="comment">//skimdb.npmjs.com/registry/</span></span><br><span class="line">edunpm - http:<span class="comment">//registry.enpmjs.org/</span></span><br><span class="line">snpm --- http:<span class="comment">//slogeor.com/</span></span><br></pre></td></tr></table></figure>
-<h3 id="切换"><a href="#切换" class="headerlink" title="切换"></a>切换</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~ nrm use taobao</span><br><span class="line">  Registry has been set to: https:<span class="comment">//registry.npm.taobao.org/</span></span><br></pre></td></tr></table></figure>
-<h3 id="新增"><a href="#新增" class="headerlink" title="新增"></a>新增</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nrm add snpm http:<span class="comment">//slogeor.com/</span></span><br></pre></td></tr></table></figure>
-<h3 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nrm help <span class="comment">// show help</span></span><br><span class="line">nrm list <span class="comment">// show all registries</span></span><br><span class="line">nrm use cnpm <span class="comment">// switch to cnpm</span></span><br><span class="line">nrm home <span class="comment">// go to a registry home page</span></span><br></pre></td></tr></table></figure>
+        <h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ brew cask search qq</span><br><span class="line">==&gt; Exact match</span><br><span class="line">qq</span><br><span class="line">==&gt; Partial matches</span><br><span class="line">qqbrowser qqinput qqmacmgr qqmusic</span><br><span class="line">➜  ~</span><br><span class="line">brew cask install qq</span><br><span class="line">Error: Cask &apos;qq&apos; definition is invalid: Bad header line: parse failed</span><br></pre></td></tr></table></figure>
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew update; brew cleanup; brew cask cleanup</span><br><span class="line">brew uninstall --force brew-cask; brew update</span><br></pre></td></tr></table></figure>
 
       
 
@@ -341,9 +258,9 @@
     </div>
     <div class="article-info article-info-index">
       
-      <a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.632Z" itemprop="datePublished">2018-06-26</time>
-</a>
+      <!--a href="javascript:void(0)" class="archive-article-date">
+  	<time datetime="2018-06-26T13:20:24.633Z" itemprop="datePublished">2018-06-26</time>
+</a-->
 
       <div style="float: right; overflow: hidden;">
         
@@ -352,7 +269,7 @@
 		<ul class="article-tag-list">
 			
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">nrm</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">brewcask</a>
         		</li>
       		
 		</ul>
@@ -365,7 +282,7 @@
 		<ul class="article-tag-list">
 			
         		<li class="article-tag-list-item">
-        			<a href="/categories/other/" class="article-tag-list-link color1">other</a>
+        			<a href="/categories/question/" class="article-tag-list-link color4">question</a>
         		</li>
       		
 		</ul>
@@ -375,7 +292,7 @@
       </div>
       <!-- 
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/26/other/nrm/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/06/26/question/brew/">展开全文 >></a>
         </p>
        -->
 
@@ -402,9 +319,9 @@
   
 
         
-        <!-- <a href="javascript:void(0)" class="archive-article-date">
+        <!-- <!--a href="javascript:void(0)" class="archive-article-date">
   	<time datetime="2018-06-26T13:20:24.632Z" itemprop="datePublished">2018-06-26</time>
-</a>
+</a-->
 
          -->
       </header>
@@ -458,9 +375,9 @@
     </div>
     <div class="article-info article-info-index">
       
-      <a href="javascript:void(0)" class="archive-article-date">
+      <!--a href="javascript:void(0)" class="archive-article-date">
   	<time datetime="2018-06-26T13:20:24.632Z" itemprop="datePublished">2018-06-26</time>
-</a>
+</a-->
 
       <div style="float: right; overflow: hidden;">
         
@@ -496,6 +413,89 @@
 
 
   
+    <article id="post-other/nrm" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/26/other/nrm/">nrm -- NPM registry 管理工具</a>
+    </h1>
+  
+
+        
+        <!-- <!--a href="javascript:void(0)" class="archive-article-date">
+  	<time datetime="2018-06-26T13:20:24.632Z" itemprop="datePublished">2018-06-26</time>
+</a-->
+
+         -->
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>通过 nrm 可以方便的查看和切换当前使用的registry。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g nrm</span><br></pre></td></tr></table></figure>
+<h3 id="查看-registry"><a href="#查看-registry" class="headerlink" title="查看 registry"></a>查看 registry</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">~ nrm ls</span><br><span class="line"></span><br><span class="line">npm ---- https:<span class="comment">//registry.npmjs.org/</span></span><br><span class="line">cnpm --- http:<span class="comment">//r.cnpmjs.org/</span></span><br><span class="line">* taobao - https:<span class="comment">//registry.npm.taobao.org/</span></span><br><span class="line">nj ----- https:<span class="comment">//registry.nodejitsu.com/</span></span><br><span class="line">rednpm - http:<span class="comment">//registry.mirror.cqupt.edu.cn/</span></span><br><span class="line">npmMirror  https:<span class="comment">//skimdb.npmjs.com/registry/</span></span><br><span class="line">edunpm - http:<span class="comment">//registry.enpmjs.org/</span></span><br><span class="line">snpm --- http:<span class="comment">//slogeor.com/</span></span><br></pre></td></tr></table></figure>
+<h3 id="切换"><a href="#切换" class="headerlink" title="切换"></a>切换</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~ nrm use taobao</span><br><span class="line">  Registry has been set to: https:<span class="comment">//registry.npm.taobao.org/</span></span><br></pre></td></tr></table></figure>
+<h3 id="新增"><a href="#新增" class="headerlink" title="新增"></a>新增</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nrm add snpm http:<span class="comment">//slogeor.com/</span></span><br></pre></td></tr></table></figure>
+<h3 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nrm help <span class="comment">// show help</span></span><br><span class="line">nrm list <span class="comment">// show all registries</span></span><br><span class="line">nrm use cnpm <span class="comment">// switch to cnpm</span></span><br><span class="line">nrm home <span class="comment">// go to a registry home page</span></span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <!--a href="javascript:void(0)" class="archive-article-date">
+  	<time datetime="2018-06-26T13:20:24.632Z" itemprop="datePublished">2018-06-26</time>
+</a-->
+
+      <div style="float: right; overflow: hidden;">
+        
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list">
+			
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">nrm</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+        
+	<!-- <div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			
+        		<li class="article-tag-list-item">
+        			<a href="/categories/other/" class="article-tag-list-link color1">other</a>
+        		</li>
+      		
+		</ul>
+	</div> -->
+
+
+      </div>
+      <!-- 
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/26/other/nrm/">展开全文 >></a>
+        </p>
+       -->
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-other/npm" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -508,9 +508,9 @@
   
 
         
-        <!-- <a href="javascript:void(0)" class="archive-article-date">
+        <!-- <!--a href="javascript:void(0)" class="archive-article-date">
   	<time datetime="2018-06-26T13:20:24.630Z" itemprop="datePublished">2018-06-26</time>
-</a>
+</a-->
 
          -->
       </header>
@@ -537,9 +537,9 @@
     </div>
     <div class="article-info article-info-index">
       
-      <a href="javascript:void(0)" class="archive-article-date">
+      <!--a href="javascript:void(0)" class="archive-article-date">
   	<time datetime="2018-06-26T13:20:24.630Z" itemprop="datePublished">2018-06-26</time>
-</a>
+</a-->
 
       <div style="float: right; overflow: hidden;">
         
@@ -587,9 +587,9 @@
   
 
         
-        <!-- <a href="javascript:void(0)" class="archive-article-date">
+        <!-- <!--a href="javascript:void(0)" class="archive-article-date">
   	<time datetime="2018-06-26T13:20:24.622Z" itemprop="datePublished">2018-06-26</time>
-</a>
+</a-->
 
          -->
       </header>
@@ -631,9 +631,9 @@
     </div>
     <div class="article-info article-info-index">
       
-      <a href="javascript:void(0)" class="archive-article-date">
+      <!--a href="javascript:void(0)" class="archive-article-date">
   	<time datetime="2018-06-26T13:20:24.622Z" itemprop="datePublished">2018-06-26</time>
-</a>
+</a-->
 
       <div style="float: right; overflow: hidden;">
         
@@ -692,9 +692,9 @@
   
 
         
-        <!-- <a href="javascript:void(0)" class="archive-article-date">
+        <!-- <!--a href="javascript:void(0)" class="archive-article-date">
   	<time datetime="2018-06-26T13:20:24.621Z" itemprop="datePublished">2018-06-26</time>
-</a>
+</a-->
 
          -->
       </header>
@@ -740,9 +740,9 @@
     </div>
     <div class="article-info article-info-index">
       
-      <a href="javascript:void(0)" class="archive-article-date">
+      <!--a href="javascript:void(0)" class="archive-article-date">
   	<time datetime="2018-06-26T13:20:24.621Z" itemprop="datePublished">2018-06-26</time>
-</a>
+</a-->
 
       <div style="float: right; overflow: hidden;">
         
@@ -801,9 +801,9 @@
   
 
         
-        <!-- <a href="javascript:void(0)" class="archive-article-date">
+        <!-- <!--a href="javascript:void(0)" class="archive-article-date">
   	<time datetime="2018-06-26T13:20:24.621Z" itemprop="datePublished">2018-06-26</time>
-</a>
+</a-->
 
          -->
       </header>
@@ -834,9 +834,9 @@
     </div>
     <div class="article-info article-info-index">
       
-      <a href="javascript:void(0)" class="archive-article-date">
+      <!--a href="javascript:void(0)" class="archive-article-date">
   	<time datetime="2018-06-26T13:20:24.621Z" itemprop="datePublished">2018-06-26</time>
-</a>
+</a-->
 
       <div style="float: right; overflow: hidden;">
         
@@ -895,9 +895,9 @@
   
 
         
-        <!-- <a href="javascript:void(0)" class="archive-article-date">
+        <!-- <!--a href="javascript:void(0)" class="archive-article-date">
   	<time datetime="2018-06-26T13:20:24.620Z" itemprop="datePublished">2018-06-26</time>
-</a>
+</a-->
 
          -->
       </header>
@@ -932,9 +932,9 @@
     </div>
     <div class="article-info article-info-index">
       
-      <a href="javascript:void(0)" class="archive-article-date">
+      <!--a href="javascript:void(0)" class="archive-article-date">
   	<time datetime="2018-06-26T13:20:24.620Z" itemprop="datePublished">2018-06-26</time>
-</a>
+</a-->
 
       <div style="float: right; overflow: hidden;">
         
@@ -993,9 +993,9 @@
   
 
         
-        <!-- <a href="javascript:void(0)" class="archive-article-date">
+        <!-- <!--a href="javascript:void(0)" class="archive-article-date">
   	<time datetime="2018-06-26T13:20:24.619Z" itemprop="datePublished">2018-06-26</time>
-</a>
+</a-->
 
          -->
       </header>
@@ -1040,9 +1040,9 @@
     </div>
     <div class="article-info article-info-index">
       
-      <a href="javascript:void(0)" class="archive-article-date">
+      <!--a href="javascript:void(0)" class="archive-article-date">
   	<time datetime="2018-06-26T13:20:24.619Z" itemprop="datePublished">2018-06-26</time>
-</a>
+</a-->
 
       <div style="float: right; overflow: hidden;">
         
