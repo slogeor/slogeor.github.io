@@ -291,112 +291,6 @@
 
 
   
-    <article id="post-base/performance/kpi" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/26/base/performance/kpi/">性能优化指标</a>
-    </h1>
-  
-
-        
-        <!-- <a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.618Z" itemprop="datePublished">2018-06-26</time>
-</a>
-
-         -->
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="三个层面"><a href="#三个层面" class="headerlink" title="三个层面"></a><font color="red">三个层面</font></h3><ul>
-<li>浏览器层面：通过预加载，减少DNS解析时间</li>
-<li>传输层面：减少请求数，降低请求量</li>
-<li>执行层面：减少重绘、回流，删除冗余代码、资源本地化</li>
-</ul>
-<h3 id="具体方法"><a href="#具体方法" class="headerlink" title="具体方法"></a><font color="red">具体方法</font></h3><ul>
-<li>添加 DNS 预解析 dns-prefetch</li>
-<li>减少域名个数，控制 5 个以内</li>
-<li>首屏內联 CSS、JavaScript</li>
-<li>HMTL 代码压缩</li>
-<li>减少 cookie 大小</li>
-<li>可以使用 CSS/SVG/ICON Font 替代图片</li>
-<li>在 HTML 里不要缩放图片</li>
-<li>移除冗余代码</li>
-<li>减少页面 layout 次数</li>
-<li>首屏加载、按需加载、第三方资源异步加载、Lazyload</li>
-<li>单页应用</li>
-<li>资源离线、本地数据持久化</li>
-<li>服务端接口<ul>
-<li>1.接口合并，减少请求接口数量</li>
-<li>2.减少借口数据量</li>
-<li>3.缓存更新频率低、重要程度低的接口数据</li>
-</ul>
-</li>
-</ul>
-<h3 id="想法"><a href="#想法" class="headerlink" title="想法"></a><font color="red">想法</font></h3><ul>
-<li>打点分析数据</li>
-<li>A-B 测试</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.618Z" itemprop="datePublished">2018-06-26</time>
-</a>
-
-      <div style="float: right; overflow: hidden;">
-        
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list">
-			
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">performance</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        
-	<!-- <div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			
-        		<li class="article-tag-list-item">
-        			<a href="/categories/base/" class="article-tag-list-link color5">base</a>
-        		</li>
-      		
-		</ul>
-	</div> -->
-
-
-      </div>
-      <!-- 
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/26/base/performance/kpi/">展开全文 >></a>
-        </p>
-       -->
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
     <article id="post-base/performance/optimization" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -631,6 +525,112 @@
       <!-- 
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/06/26/base/performance/optimization/">展开全文 >></a>
+        </p>
+       -->
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-base/performance/kpi" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/26/base/performance/kpi/">性能优化指标</a>
+    </h1>
+  
+
+        
+        <!-- <a href="javascript:void(0)" class="archive-article-date">
+  	<time datetime="2018-06-26T13:20:24.618Z" itemprop="datePublished">2018-06-26</time>
+</a>
+
+         -->
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="三个层面"><a href="#三个层面" class="headerlink" title="三个层面"></a><font color="red">三个层面</font></h3><ul>
+<li>浏览器层面：通过预加载，减少DNS解析时间</li>
+<li>传输层面：减少请求数，降低请求量</li>
+<li>执行层面：减少重绘、回流，删除冗余代码、资源本地化</li>
+</ul>
+<h3 id="具体方法"><a href="#具体方法" class="headerlink" title="具体方法"></a><font color="red">具体方法</font></h3><ul>
+<li>添加 DNS 预解析 dns-prefetch</li>
+<li>减少域名个数，控制 5 个以内</li>
+<li>首屏內联 CSS、JavaScript</li>
+<li>HMTL 代码压缩</li>
+<li>减少 cookie 大小</li>
+<li>可以使用 CSS/SVG/ICON Font 替代图片</li>
+<li>在 HTML 里不要缩放图片</li>
+<li>移除冗余代码</li>
+<li>减少页面 layout 次数</li>
+<li>首屏加载、按需加载、第三方资源异步加载、Lazyload</li>
+<li>单页应用</li>
+<li>资源离线、本地数据持久化</li>
+<li>服务端接口<ul>
+<li>1.接口合并，减少请求接口数量</li>
+<li>2.减少借口数据量</li>
+<li>3.缓存更新频率低、重要程度低的接口数据</li>
+</ul>
+</li>
+</ul>
+<h3 id="想法"><a href="#想法" class="headerlink" title="想法"></a><font color="red">想法</font></h3><ul>
+<li>打点分析数据</li>
+<li>A-B 测试</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="javascript:void(0)" class="archive-article-date">
+  	<time datetime="2018-06-26T13:20:24.618Z" itemprop="datePublished">2018-06-26</time>
+</a>
+
+      <div style="float: right; overflow: hidden;">
+        
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list">
+			
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">performance</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+        
+	<!-- <div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			
+        		<li class="article-tag-list-item">
+        			<a href="/categories/base/" class="article-tag-list-link color5">base</a>
+        		</li>
+      		
+		</ul>
+	</div> -->
+
+
+      </div>
+      <!-- 
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/26/base/performance/kpi/">展开全文 >></a>
         </p>
        -->
 
@@ -969,6 +969,108 @@
 
 
   
+    <article id="post-base/http/header" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/26/base/http/header/">HTTP Headers</a>
+    </h1>
+  
+
+        
+        <!-- <a href="javascript:void(0)" class="archive-article-date">
+  	<time datetime="2018-06-26T13:20:24.615Z" itemprop="datePublished">2018-06-26</time>
+</a>
+
+         -->
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Request-Header"><a href="#Request-Header" class="headerlink" title="Request Header"></a>Request Header</h3><ul>
+<li>Host</li>
+<li>User-Agent</li>
+<li>Accept</li>
+<li>Accept-Encoding</li>
+<li>Accept-Language</li>
+<li>Accept-Charset</li>
+<li>Cache-Control</li>
+<li>Cookie</li>
+<li>Connection: Close</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Host: www.baidu.com</span><br><span class="line">User-Agent: Mozilla/<span class="number">5.0</span> (Macintosh; Intel Mac OS X <span class="number">10</span>_13_1) ...</span><br><span class="line">Accept: text/html,application/xhtml+xml;image/webp,image/apng;q=<span class="number">0.8</span>...</span><br><span class="line">Accept-Encoding: gzip, deflate, br</span><br><span class="line">Accept-Language: zh-CN,zh;q=<span class="number">0.9</span>,en;q=<span class="number">0.8</span>,ja;q=<span class="number">0.7</span></span><br><span class="line">Cache-Control: max-age=<span class="number">0</span></span><br><span class="line">Cookie: BAIDUID=E364865F44E573FD6858F41329938092:FG=<span class="number">1</span>;</span><br><span class="line">Connection: keep-alive</span><br></pre></td></tr></table></figure>
+<h3 id="Response-Header"><a href="#Response-Header" class="headerlink" title="Response Header"></a>Response Header</h3><ul>
+<li>Server</li>
+<li>Connection: keep-alive/Close</li>
+<li>Content-type</li>
+<li>Content-Length</li>
+<li>Date</li>
+<li>Expires</li>
+<li>Last-Modified</li>
+<li>Etag</li>
+<li>Cache-Control</li>
+<li>Transfer-Encoding</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Server: Apache</span><br><span class="line">Cache-Control: max-age=<span class="number">315360000</span></span><br><span class="line">Content-Length: <span class="number">40872</span></span><br><span class="line">Content-Type: image/png</span><br><span class="line"><span class="built_in">Date</span>: Sun, <span class="number">17</span> Jun <span class="number">2018</span> <span class="number">01</span>:<span class="number">48</span>:<span class="number">44</span> GMT</span><br><span class="line">Etag: <span class="string">"9fa8-56ebc9ab61427"</span></span><br><span class="line">Expires: Wed, <span class="number">14</span> Jun <span class="number">2028</span> <span class="number">01</span>:<span class="number">48</span>:<span class="number">44</span> GMT</span><br><span class="line">Last-Modified: Sat, <span class="number">16</span> Jun <span class="number">2018</span> <span class="number">06</span>:<span class="number">40</span>:<span class="number">12</span> GMT</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="javascript:void(0)" class="archive-article-date">
+  	<time datetime="2018-06-26T13:20:24.615Z" itemprop="datePublished">2018-06-26</time>
+</a>
+
+      <div style="float: right; overflow: hidden;">
+        
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list">
+			
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">http</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+        
+	<!-- <div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			
+        		<li class="article-tag-list-item">
+        			<a href="/categories/base/" class="article-tag-list-link color5">base</a>
+        		</li>
+      		
+		</ul>
+	</div> -->
+
+
+      </div>
+      <!-- 
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/26/base/http/header/">展开全文 >></a>
+        </p>
+       -->
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-base/http/code" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1090,108 +1192,6 @@
       <!-- 
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/06/26/base/http/code/">展开全文 >></a>
-        </p>
-       -->
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-base/http/header" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/26/base/http/header/">HTTP Headers</a>
-    </h1>
-  
-
-        
-        <!-- <a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.615Z" itemprop="datePublished">2018-06-26</time>
-</a>
-
-         -->
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Request-Header"><a href="#Request-Header" class="headerlink" title="Request Header"></a>Request Header</h3><ul>
-<li>Host</li>
-<li>User-Agent</li>
-<li>Accept</li>
-<li>Accept-Encoding</li>
-<li>Accept-Language</li>
-<li>Accept-Charset</li>
-<li>Cache-Control</li>
-<li>Cookie</li>
-<li>Connection: Close</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Host: www.baidu.com</span><br><span class="line">User-Agent: Mozilla/<span class="number">5.0</span> (Macintosh; Intel Mac OS X <span class="number">10</span>_13_1) ...</span><br><span class="line">Accept: text/html,application/xhtml+xml;image/webp,image/apng;q=<span class="number">0.8</span>...</span><br><span class="line">Accept-Encoding: gzip, deflate, br</span><br><span class="line">Accept-Language: zh-CN,zh;q=<span class="number">0.9</span>,en;q=<span class="number">0.8</span>,ja;q=<span class="number">0.7</span></span><br><span class="line">Cache-Control: max-age=<span class="number">0</span></span><br><span class="line">Cookie: BAIDUID=E364865F44E573FD6858F41329938092:FG=<span class="number">1</span>;</span><br><span class="line">Connection: keep-alive</span><br></pre></td></tr></table></figure>
-<h3 id="Response-Header"><a href="#Response-Header" class="headerlink" title="Response Header"></a>Response Header</h3><ul>
-<li>Server</li>
-<li>Connection: keep-alive/Close</li>
-<li>Content-type</li>
-<li>Content-Length</li>
-<li>Date</li>
-<li>Expires</li>
-<li>Last-Modified</li>
-<li>Etag</li>
-<li>Cache-Control</li>
-<li>Transfer-Encoding</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Server: Apache</span><br><span class="line">Cache-Control: max-age=<span class="number">315360000</span></span><br><span class="line">Content-Length: <span class="number">40872</span></span><br><span class="line">Content-Type: image/png</span><br><span class="line"><span class="built_in">Date</span>: Sun, <span class="number">17</span> Jun <span class="number">2018</span> <span class="number">01</span>:<span class="number">48</span>:<span class="number">44</span> GMT</span><br><span class="line">Etag: <span class="string">"9fa8-56ebc9ab61427"</span></span><br><span class="line">Expires: Wed, <span class="number">14</span> Jun <span class="number">2028</span> <span class="number">01</span>:<span class="number">48</span>:<span class="number">44</span> GMT</span><br><span class="line">Last-Modified: Sat, <span class="number">16</span> Jun <span class="number">2018</span> <span class="number">06</span>:<span class="number">40</span>:<span class="number">12</span> GMT</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.615Z" itemprop="datePublished">2018-06-26</time>
-</a>
-
-      <div style="float: right; overflow: hidden;">
-        
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list">
-			
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">http</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        
-	<!-- <div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			
-        		<li class="article-tag-list-item">
-        			<a href="/categories/base/" class="article-tag-list-link color5">base</a>
-        		</li>
-      		
-		</ul>
-	</div> -->
-
-
-      </div>
-      <!-- 
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/26/base/http/header/">展开全文 >></a>
         </p>
        -->
 
@@ -1403,14 +1403,14 @@
 
 
   
-    <article id="post-base/css/box-model" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-base/css/css_box-sizing" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/26/base/css/box-model/">CSS盒模型</a>
+      <a class="article-title" href="/2018/06/26/base/css/css_box-sizing/">box-sizing</a>
     </h1>
   
 
@@ -1424,26 +1424,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><b>描述</b></p>
-<p>文档中的每个元素被描绘为矩形盒子，确定其大小，属性，比如颜色、背景、边框，及其位置是渲染引擎的目标</p>
-<p>盒模型就是确定元素内容所占用的空间，盒子有四个边界：外边距边界 margin edge、边框边界 border edge、内边距边界 padding edge 与 内容边界 content edge</p>
-<p><b>W3C盒模型</b></p>
-<p>在W3C盒模型中，一个块级元素的总宽度按照如下的方程式计算：</p>
-<p>总宽度 = margin-left + border-left + padding-left + width + padding-right + border-right + margin-right</p>
-<p>对于高度也使用同样的计算方法，但为了简便起见从现在开始只说 width</p>
-<p><b>IE盒模型</b></p>
-<p>IE盒模型的计算方式和W3C的很相似，但有一点是非常不同的，就是填充和边框并不被包含在计算的范围内</p>
-<p>总宽度 = margin-left + width + margin-right</p>
-<p><b>盒模型图</b></p>
-<p><img src="https://github.com/slogeor/images/blob/master/fe/2018/04/box_models.gif?raw=true" alt="box_models"></p>
-<p><b>box-sizing</b></p>
-<p>box-sizing 是 CSS3 的一个属性，与盒模型有着千丝万缕的联系</p>
-<p><strong>属性值: content-box</strong></p>
-<p>padding 和 border 不被包含在定义的 width 和 height 之内。对象的实际宽度等于设置的 width 值和border、padding 之和，即Element width = width + border + padding 此属性表现为标准模式下的盒模型</p>
-<p><img src="https://github.com/slogeor/images/blob/master/fe/2018/04/content-box-2.png?raw=true" alt="content-box-2"></p>
-<p><strong>属性值: border-box</strong></p>
-<p>padding 和 border 被包含在定义的 width 和 height 之内。对象的实际宽度就等于设置的 width 值，即使定义有 border 和 padding 也不会改变对象的实际宽度，即 Element width = width 此属性表现为怪异模式下的盒模型</p>
-<p><img src="https://github.com/slogeor/images/blob/master/fe/2018/04/border-box-2.png?raw=true" alt="border-box-2"></p>
+        <p>允许你以某种方式定义某些元素，以适应指定区域。</p>
+<ul>
+<li>content-box: 内容的宽高是指定元素的宽高，box的宽高是指定元素的宽高加上指定元素的填充和边框</li>
+<li>border-box: 内容的宽高是指定元素的宽高减去指定元素的填充和边框，box的宽高是指定的元素的宽高</li>
+</ul>
+<p><strong>content-box</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.demo &#123;</span><br><span class="line">  width: <span class="number">200</span>px;</span><br><span class="line">  height: <span class="number">200</span>px;</span><br><span class="line">  border: 5px solid #F00;</span><br><span class="line">  padding: <span class="number">10</span>px;</span><br><span class="line">  margin: <span class="number">10</span>px;</span><br><span class="line">  background-color: #f3e4e5;</span><br><span class="line">  box-sizing: content-box;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>content-box</strong></p>
+<p><img src="https://github.com/slogeor/images/blob/master/fe/2018/04/content-box.png?raw=true" alt="content-box.png"></p>
+<p><strong>border-box</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.demo &#123;</span><br><span class="line">  width: <span class="number">200</span>px;</span><br><span class="line">  height: <span class="number">200</span>px;</span><br><span class="line">  border: 5px solid #F00;</span><br><span class="line">  padding: <span class="number">10</span>px;</span><br><span class="line">  margin: <span class="number">10</span>px;</span><br><span class="line">  background-color: #f3e4e5;</span><br><span class="line">  box-sizing: border-box;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>border-box 效果</strong></p>
+<p><img src="https://github.com/slogeor/images/blob/master/fe/2018/04/border-box.png?raw=true" alt="border-box.png"></p>
 
       
 
@@ -1463,6 +1456,10 @@
 			
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
+        		</li>
+      		
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">box-sizing</a>
         		</li>
       		
 		</ul>
@@ -1485,7 +1482,7 @@
       </div>
       <!-- 
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/26/base/css/box-model/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/06/26/base/css/css_box-sizing/">展开全文 >></a>
         </p>
        -->
 
