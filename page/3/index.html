@@ -146,20 +146,20 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-base/performance/preload" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-base/secure/xss" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/26/base/performance/preload/">性能优化－预加载</a>
+      <a class="article-title" href="/2018/06/26/base/secure/xss/">XSS</a>
     </h1>
   
 
         
         <!-- <a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.619Z" itemprop="datePublished">2018-06-26</time>
+  	<time datetime="2018-06-26T13:20:24.620Z" itemprop="datePublished">2018-06-26</time>
 </a>
 
          -->
@@ -167,37 +167,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>预加载是浏览器对将来可能被使用资源的一种暗示，一些资源可以在当前页面使用到，一些资源可能在将来的某些页面中被使用。作为开发人员，我们比浏览器更加了解我们的应用，所以我们可以对核心资源使用预加载。</p>
-<h3 id="为何需要预加载"><a href="#为何需要预加载" class="headerlink" title="为何需要预加载"></a>为何需要预加载</h3><ul>
-<li>用户可能是第一次访问网站，此时还无缓存</li>
-<li>用户可能清空了缓存</li>
-<li>缓存可能已经过期，资源将重新加载</li>
-<li>用户访问的缓存文件可能不是最新的，需要重新加载</li>
+        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>对于将要放置到 HTML 页面 body 里的不可信数据，进行 HTML 编码已经足够防御 XSS 攻击，甚至将 HTML 编码后的数据放到 HTML 标签的属性（attribute）里也不会产生 XSS 漏洞（但前提是这些属性都正确使用了引号）。</p>
+<p>如果将 HTML 编码后的数据放到了 <code>&lt;Script /&gt;</code> 标签里的任何地方，甚至是 HTML 标签的事件处理属性里、或者是放到了CSS、URL 里，XSS 攻击依然会发生，在这种情况下，HTML 编码不起作用。</p>
+<h3 id="准则"><a href="#准则" class="headerlink" title="准则"></a>准则</h3><p><strong>1.不要在页面中插入任何不可信数据，除非这些数已经据根据下面几个原则进行了编码</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;…不要在这里直接插入不可信数据…&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;!– …不要在这里直接插入不可信数据… –&gt;</span></span><br><span class="line"><span class="regexp">&lt;div 不要在这里直接插入不可信数据="…"&gt;&lt;/</span>div&gt;</span><br><span class="line">&lt;div name=<span class="string">"…不要在这里直接插入不可信数据…"</span>&gt;&lt;/div&gt;</span><br><span class="line">&lt;a 不要在这里直接插入不可信数据 href=<span class="string">"…"</span>&gt;&lt;/a&gt;</span><br><span class="line">&lt;style&gt;…不要在这里直接插入不可信数据…&lt;<span class="regexp">/style&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>2.将不可信数据插入到 HTML 标签之间时，对这些数据进行 HTML Entity 编码</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;…插入不可信数据前，对其进行HTML Entity编码…&lt;<span class="regexp">/body&gt;</span></span><br><span class="line"><span class="regexp">&lt;div&gt;…插入不可信数据前，对其进行HTML Entity编码…&lt;/</span>div&gt;</span><br><span class="line">&lt;p&gt;…插入不可信数据前，对其进行HTML Entity编码…&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">以此类推，往其他HTML标签之间插入不可信数据前，对其进行 HTML Entity 编码</span></span><br></pre></td></tr></table></figure>
+<p><strong>3.将不可信数据插入到 HTML 属性里时，对这些数据进行 HTML 属性编码</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div attr=<span class="string">"…插入不可信数据前，进行HTML属性编码…"</span>&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>4.将不可信数据插入到 SCRIPT 里时，对这些数据进行 SCRIPT 编码</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(<span class="string">"…插入不可信数据前，进行JavaScript编码…"</span>)&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;x = "…插入不可信数据前，进行JavaScript编码…"&lt;/</span>script&gt;</span><br><span class="line">&lt;div onmouseover=<span class="string">"x='…插入不可信数据前，进行JavaScript编码…'"</span>&lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure>
+<p>特别需要注意在XSS防御中，有些 JavaScript 函数是极度危险的，就算对不可信数据进行 JavaScript 编码，也依然会产生 XSS 漏洞</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;<span class="built_in">window</span>.setInterval(<span class="string">"…就算对不可信数据进行了JavaScript编码，这里依然会有XSS漏洞…"</span>);&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>5.将不可信数据插入到 style 属性里时，对这些数据进行 CSS 编码</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;selector &#123; <span class="attr">property</span> : <span class="string">" …插入不可信数据前，进行CSS编码… "</span>&#125; &lt;<span class="regexp">/style&gt;</span></span><br><span class="line"><span class="regexp">&lt;span style=" property : …插入不可信数据前，进行CSS编码… "&gt;…&lt;/</span>span&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>6.将不可信数据插入到 HTML URL 里时，对这些数据进行 URL 编码</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">"http://www.abcd.com?param=…插入不可信数据前，进行URL编码…"</span>&gt; Link Content &lt;<span class="regexp">/a&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>7.使用富文本时，使用XSS规则引擎进行编码过滤</strong></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>由于很多地方都可能产生 XSS 漏洞，而且每个地方产生漏洞的原因又各有不同，所以对于 XSS 防御来说，我们需要在正确的地方做正确的事情，即根据不可信数据将要被放置到的地方进行相应的编码。</p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul>
+<li><a href="http://blog.jobbole.com/47372/" target="_blank" rel="noopener">http://blog.jobbole.com/47372/</a></li>
 </ul>
-<h3 id="预加载技术"><a href="#预加载技术" class="headerlink" title="预加载技术"></a>预加载技术</h3><p><strong>1、DNS预解析dns-prefetch</strong></p>
-<p>通过DNS预解析来告诉浏览器未来我们可能从某个特定的URL获取资源，当浏览器真正使用到该域名下的某个资源时就可以尽快地完成DNS解析</p>
-<p>如果将来可能从<code>example.com</code>获取图片或视频资源，那么可以在文档顶部的<code>&lt;head&gt;</code>标签中加入以下内容</p>
-<p><code>&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//example.com&quot;&gt;</code></p>
-<p>通过简单的一行代码就可以告知那些兼容此特性的浏览器进行DNS预解析，这意味着当浏览器真正请求该域名下的某个资源时，DNS的解析已经完成</p>
-<p><strong>2、预连接preconnect</strong></p>
-<p>与DNS预解析类似，preconnect不仅完成DNS预解析，同时还将进行TCP握手和建立传输层协议</p>
-<p><code>&lt;link rel=&quot;preconnect&quot; href=&quot;http://example.com&quot;&gt;</code></p>
-<p>现代浏览器都试着预测网站将来需要哪些连接，然后预先建立socket连接，从而消除昂贵的DNS查找、TCP握手和TLS往返开销。但浏览器还是不够聪明，并不能准确预测每个网站的所有预链接目标。Firefox39和Chrome46已经可以使用preconnect告诉浏览器我们需要进行哪些预连接。</p>
-<p><strong>3、预获取prefetching</strong></p>
-<p>如果我们确定某个资源将来一定会被使用到，可以让浏览器预先请求该资源并放入浏览器缓存中。如一个图片、脚本或任何可以被浏览器缓存的资源</p>
-<p><code>&lt;link rel=&quot;prefetch&quot; href=&quot;image.png&quot;&gt;</code></p>
-<p>与DNS预解析不同，预获取真正请求并下载了资源，并储存在缓存中。但预获取还依赖于一些条件，某些预获取可能会被浏览器忽略，例如从一个非常缓慢的网络中获取一个庞大的字体文件</p>
-<p><strong>4、subresources</strong></p>
-<p>预获取资源具有最高的优先级，在所有prefetch项之前进行：</p>
-<p><code>&lt;link rel=&quot;subresource&quot; href=&quot;styles.css&quot;&gt;</code></p>
-<p>rel=prefetch 为将来的页面提供了一种低优先级的资源预加载方式</p>
-<p>rel=subresource 为当前页面提供了一种高优先级的资源预加载</p>
-<p><strong>5、预渲染prerender</strong></p>
-<p>预先加载文档的所有资源</p>
-<p><code>&lt;link rel=&quot;prerender&quot; href=&quot;http://example.com&quot;&gt;</code></p>
-<p>这类似于在一个隐藏的tab页中打开了某个链接：将下载所有资源、创建DOM结构、完成页面布局、应用CSS样式和执行JavaScript脚本等。当用户真正访问该链接时，隐藏的页面就切换为可见，使页面看起来就是瞬间加载完成一样。Google搜索在其即时搜索页面中已经应用该技术多年了，微软也宣称将在IE11中支持该特性。</p>
-<p>需要注意的是不要滥用该特性，当你知道用户一定会点击某个链接时才可以进行预渲染，否则浏览器将无条件地下载所有预渲染需要的资源。</p>
-<h3 id="参考链"><a href="#参考链" class="headerlink" title="参考链"></a>参考链</h3><p><a href="http://bubkoo.com/2015/11/19/prefetching-preloading-prebrowsing/" target="_blank" rel="noopener">http://bubkoo.com/2015/11/19/prefetching-preloading-prebrowsing/</a></p>
 
       
 
@@ -206,7 +196,7 @@
     <div class="article-info article-info-index">
       
       <a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.619Z" itemprop="datePublished">2018-06-26</time>
+  	<time datetime="2018-06-26T13:20:24.620Z" itemprop="datePublished">2018-06-26</time>
 </a>
 
       <div style="float: right; overflow: hidden;">
@@ -216,7 +206,7 @@
 		<ul class="article-tag-list">
 			
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">performance</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">secure</a>
         		</li>
       		
 		</ul>
@@ -239,7 +229,7 @@
       </div>
       <!-- 
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/26/base/performance/preload/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/06/26/base/secure/xss/">展开全文 >></a>
         </p>
        -->
 
@@ -385,6 +375,114 @@
       <!-- 
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/06/26/base/promise/">展开全文 >></a>
+        </p>
+       -->
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-base/performance/preload" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/26/base/performance/preload/">性能优化－预加载</a>
+    </h1>
+  
+
+        
+        <!-- <a href="javascript:void(0)" class="archive-article-date">
+  	<time datetime="2018-06-26T13:20:24.619Z" itemprop="datePublished">2018-06-26</time>
+</a>
+
+         -->
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>预加载是浏览器对将来可能被使用资源的一种暗示，一些资源可以在当前页面使用到，一些资源可能在将来的某些页面中被使用。作为开发人员，我们比浏览器更加了解我们的应用，所以我们可以对核心资源使用预加载。</p>
+<h3 id="为何需要预加载"><a href="#为何需要预加载" class="headerlink" title="为何需要预加载"></a>为何需要预加载</h3><ul>
+<li>用户可能是第一次访问网站，此时还无缓存</li>
+<li>用户可能清空了缓存</li>
+<li>缓存可能已经过期，资源将重新加载</li>
+<li>用户访问的缓存文件可能不是最新的，需要重新加载</li>
+</ul>
+<h3 id="预加载技术"><a href="#预加载技术" class="headerlink" title="预加载技术"></a>预加载技术</h3><p><strong>1、DNS预解析dns-prefetch</strong></p>
+<p>通过DNS预解析来告诉浏览器未来我们可能从某个特定的URL获取资源，当浏览器真正使用到该域名下的某个资源时就可以尽快地完成DNS解析</p>
+<p>如果将来可能从<code>example.com</code>获取图片或视频资源，那么可以在文档顶部的<code>&lt;head&gt;</code>标签中加入以下内容</p>
+<p><code>&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//example.com&quot;&gt;</code></p>
+<p>通过简单的一行代码就可以告知那些兼容此特性的浏览器进行DNS预解析，这意味着当浏览器真正请求该域名下的某个资源时，DNS的解析已经完成</p>
+<p><strong>2、预连接preconnect</strong></p>
+<p>与DNS预解析类似，preconnect不仅完成DNS预解析，同时还将进行TCP握手和建立传输层协议</p>
+<p><code>&lt;link rel=&quot;preconnect&quot; href=&quot;http://example.com&quot;&gt;</code></p>
+<p>现代浏览器都试着预测网站将来需要哪些连接，然后预先建立socket连接，从而消除昂贵的DNS查找、TCP握手和TLS往返开销。但浏览器还是不够聪明，并不能准确预测每个网站的所有预链接目标。Firefox39和Chrome46已经可以使用preconnect告诉浏览器我们需要进行哪些预连接。</p>
+<p><strong>3、预获取prefetching</strong></p>
+<p>如果我们确定某个资源将来一定会被使用到，可以让浏览器预先请求该资源并放入浏览器缓存中。如一个图片、脚本或任何可以被浏览器缓存的资源</p>
+<p><code>&lt;link rel=&quot;prefetch&quot; href=&quot;image.png&quot;&gt;</code></p>
+<p>与DNS预解析不同，预获取真正请求并下载了资源，并储存在缓存中。但预获取还依赖于一些条件，某些预获取可能会被浏览器忽略，例如从一个非常缓慢的网络中获取一个庞大的字体文件</p>
+<p><strong>4、subresources</strong></p>
+<p>预获取资源具有最高的优先级，在所有prefetch项之前进行：</p>
+<p><code>&lt;link rel=&quot;subresource&quot; href=&quot;styles.css&quot;&gt;</code></p>
+<p>rel=prefetch 为将来的页面提供了一种低优先级的资源预加载方式</p>
+<p>rel=subresource 为当前页面提供了一种高优先级的资源预加载</p>
+<p><strong>5、预渲染prerender</strong></p>
+<p>预先加载文档的所有资源</p>
+<p><code>&lt;link rel=&quot;prerender&quot; href=&quot;http://example.com&quot;&gt;</code></p>
+<p>这类似于在一个隐藏的tab页中打开了某个链接：将下载所有资源、创建DOM结构、完成页面布局、应用CSS样式和执行JavaScript脚本等。当用户真正访问该链接时，隐藏的页面就切换为可见，使页面看起来就是瞬间加载完成一样。Google搜索在其即时搜索页面中已经应用该技术多年了，微软也宣称将在IE11中支持该特性。</p>
+<p>需要注意的是不要滥用该特性，当你知道用户一定会点击某个链接时才可以进行预渲染，否则浏览器将无条件地下载所有预渲染需要的资源。</p>
+<h3 id="参考链"><a href="#参考链" class="headerlink" title="参考链"></a>参考链</h3><p><a href="http://bubkoo.com/2015/11/19/prefetching-preloading-prebrowsing/" target="_blank" rel="noopener">http://bubkoo.com/2015/11/19/prefetching-preloading-prebrowsing/</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="javascript:void(0)" class="archive-article-date">
+  	<time datetime="2018-06-26T13:20:24.619Z" itemprop="datePublished">2018-06-26</time>
+</a>
+
+      <div style="float: right; overflow: hidden;">
+        
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list">
+			
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">performance</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+        
+	<!-- <div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			
+        		<li class="article-tag-list-item">
+        			<a href="/categories/base/" class="article-tag-list-link color5">base</a>
+        		</li>
+      		
+		</ul>
+	</div> -->
+
+
+      </div>
+      <!-- 
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/26/base/performance/preload/">展开全文 >></a>
         </p>
        -->
 
@@ -1404,116 +1502,9 @@
 
 
   
-    <article id="post-base/data-type/data-type-equal" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/26/base/data-type/data-type-equal/">数据类型的比较</a>
-    </h1>
-  
-
-        
-        <!-- <a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.613Z" itemprop="datePublished">2018-06-26</time>
-</a>
-
-         -->
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="VS"><a href="#VS" class="headerlink" title="== VS ==="></a>== VS ===</h3><p>== 两边值类型不同的时候，要先进行类型转换，再比较。<br>=== 不做类型转换，类型不同的一定不等。</p>
-<p><strong>==比较</strong></p>
-<p>如果两个类型相同，进行 === 比较；如果类型不等，会先隐式转换然后在进行 == 比较。</p>
-<p>基本数据类型之间的比较</p>
-<p>null、 undefined、数字、字符串、布尔</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">null</span> == <span class="literal">undefined</span>  <span class="comment">// true</span></span><br><span class="line"><span class="number">1</span> == <span class="string">'1'</span>          <span class="comment">// true</span></span><br><span class="line"><span class="number">1</span> == <span class="literal">true</span>         <span class="comment">// true</span></span><br><span class="line"><span class="literal">true</span> == <span class="number">1</span>         <span class="comment">// true</span></span><br><span class="line"><span class="number">2</span> == <span class="literal">true</span>         <span class="comment">// false</span></span><br><span class="line"><span class="literal">false</span> == <span class="number">0</span>        <span class="comment">// true</span></span><br><span class="line"><span class="number">0</span> == <span class="literal">false</span>        <span class="comment">// true</span></span><br><span class="line"><span class="literal">false</span> == <span class="string">'false'</span>  <span class="comment">// false</span></span><br><span class="line"><span class="literal">true</span> == <span class="string">'false'</span>   <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-<p>布尔类型和数字或字符类型两个等号比较时，true 会先转换成数值 1， false 会先转换成数值 0，然后在进行比较。</p>
-<p><strong>复杂数据类型与基本数据类型之间的比较</strong></p>
-<p>复杂数据类型会先转换成基础类型的值再比较。</p>
-<p>复杂数据类型换成基础类型: 利用它的 <code>toString</code> 或者 <code>valueOf</code> 方法，转换时会 <code>valueOf</code> 优先于 <code>toString</code></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  toString: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="number">1</span>&#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj == <span class="literal">true</span>   <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj1 = &#123;</span><br><span class="line">  toString: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="string">'2'</span>&#125;,</span><br><span class="line">  valueOf: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="string">'1'</span>&#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj1 == <span class="string">'1'</span>     <span class="comment">// true</span></span><br><span class="line">obj1 == <span class="string">'2'</span>    <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line">obj1 == obj   <span class="comment">// flase</span></span><br></pre></td></tr></table></figure>
-<h3 id="null-undefined"><a href="#null-undefined" class="headerlink" title="null  undefined"></a>null  undefined</h3><p>undefined 和 null 出现在判断条件语句中，会被自动转为 false；相等运算比较也认为两者相等。</p>
-<p>null 是一个表示 <code>无</code> 的对象，转为数值时为 0</p>
-<p>undefined 是一个表示 <code>无</code> 的原始值，转为数值时为NaN</p>
-<p>null 表示 <code>没有对象</code>，即该处不应该有值，典型用法是：</p>
-<ul>
-<li>1.作为函数的参数，表示该函数的参数不是对象</li>
-<li>2.作为对象原型链的终点</li>
-</ul>
-<p>undefined 表示 <code>缺少值</code>，就是此处应该有一个值，但是还没有定义，典型用法是：</p>
-<ul>
-<li>1.变量被声明了，但没有赋值时，就等于undefined</li>
-<li>2.调用函数时，应该提供的参数没有提供，该参数等于undefined</li>
-<li>3.对象没有赋值的属性，该属性的值为 undefined</li>
-<li>4.函数没有返回值时，默认返回 undefined</li>
-</ul>
-<h3 id="toString-VS-valueOf"><a href="#toString-VS-valueOf" class="headerlink" title="toString VS valueOf"></a>toString VS valueOf</h3><p>如果对象的 toString 和 valueOf 都存在的时候，对象转换为字符串的时候会优先考虑 <code>valueOf</code> 方法，对象输出操作会优先考虑 <code>toString</code> 方法，整体来看 <code>valueOf</code> 优于 <code>toString</code>。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  toString: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="string">'12'</span>; &#125;,</span><br><span class="line">  valueOf: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="string">'10'</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">alert(obj);           <span class="comment">//12  toString</span></span><br><span class="line">alert(<span class="string">''</span> + obj);      <span class="comment">//10  valueOf</span></span><br><span class="line">alert(+obj);          <span class="comment">//10  valueOf</span></span><br><span class="line">alert(<span class="built_in">String</span>(obj));   <span class="comment">//12 toString</span></span><br><span class="line">alert(<span class="built_in">Number</span>(obj));   <span class="comment">//10 valueOf</span></span><br><span class="line">alert(obj == <span class="string">'10'</span>);   <span class="comment">//true valueOf</span></span><br><span class="line">alert(obj === <span class="string">'12'</span>);  <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
-<h3 id="测试题"><a href="#测试题" class="headerlink" title="测试题"></a>测试题</h3><p>定义变量 a，执行下面代码能够输出 <code>我走进来了</code>。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(a == <span class="number">1</span> &amp;&amp; a == <span class="number">2</span> &amp;&amp; a == <span class="number">3</span>)&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"我走进来了"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.613Z" itemprop="datePublished">2018-06-26</time>
-</a>
-
-      <div style="float: right; overflow: hidden;">
-        
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list">
-			
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        
-	<!-- <div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			
-        		<li class="article-tag-list-item">
-        			<a href="/categories/base/" class="article-tag-list-link color5">base</a>
-        		</li>
-      		
-		</ul>
-	</div> -->
-
-
-      </div>
-      <!-- 
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/26/base/data-type/data-type-equal/">展开全文 >></a>
-        </p>
-       -->
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 

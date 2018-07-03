@@ -6,24 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://slogeor.github.io">
-  <title>HTTP 缓存 -- Cache-Control | 一枝秋雨</title>
+  <title>一枝秋雨</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="HTTP 头信息 服务器返回一个 1024 字节的响应，指示客户端将其缓存最多 120 秒，并提供一个验证令牌x234dff，可在响应过期后用来检查资源是否被修改。 Etag 服务器使用 ETag HTTP 标头传递验证令牌 验证令牌可实现高效的资源更新检查：资源未发生变化时不会传送任何数据  ETag 旨在解决的问题: 服务器生成并返回的随机令牌通常是文件内容的哈希值或某个其他指纹。客户端不需要">
-<meta name="keywords" content="cache">
-<meta property="og:type" content="article">
-<meta property="og:title" content="HTTP 缓存 -- Cache-Control">
-<meta property="og:url" content="http://slogeor.github.io/2018/06/26/base/cache/cache-control/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="一枝秋雨">
+<meta property="og:url" content="http://slogeor.github.io/page/5/index.html">
 <meta property="og:site_name" content="一枝秋雨">
-<meta property="og:description" content="HTTP 头信息 服务器返回一个 1024 字节的响应，指示客户端将其缓存最多 120 秒，并提供一个验证令牌x234dff，可在响应过期后用来检查资源是否被修改。 Etag 服务器使用 ETag HTTP 标头传递验证令牌 验证令牌可实现高效的资源更新检查：资源未发生变化时不会传送任何数据  ETag 旨在解决的问题: 服务器生成并返回的随机令牌通常是文件内容的哈希值或某个其他指纹。客户端不需要">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/images/http-request.png?hl=zh-cn">
-<meta property="og:image" content="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/images/http-cache-control.png?hl=zh-cn">
-<meta property="og:image" content="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/images/http-cache-decision-tree.png?hl=zh-cn">
-<meta property="og:updated_time" content="2018-06-26T13:20:24.610Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTTP 缓存 -- Cache-Control">
-<meta name="twitter:description" content="HTTP 头信息 服务器返回一个 1024 字节的响应，指示客户端将其缓存最多 120 秒，并提供一个验证令牌x234dff，可在响应过期后用来检查资源是否被修改。 Etag 服务器使用 ETag HTTP 标头传递验证令牌 验证令牌可实现高效的资源更新检查：资源未发生变化时不会传送任何数据  ETag 旨在解决的问题: 服务器生成并返回的随机令牌通常是文件内容的哈希值或某个其他指纹。客户端不需要">
-<meta name="twitter:image" content="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/images/http-request.png?hl=zh-cn">
+<meta name="twitter:title" content="一枝秋雨">
   
     <link rel="alternative" href="/atom.xml" title="一枝秋雨" type="application/atom+xml">
   
@@ -153,20 +144,22 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-base/cache/cache-control" class="article article-type-post " itemscope itemprop="blogPost">
+            
+  
+    <article id="post-base/algorithm/quicksort" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      HTTP 缓存 -- Cache-Control
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/26/base/algorithm/quicksort/">快速排序</a>
     </h1>
   
 
         
         <!-- <a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.610Z" itemprop="datePublished">2018-06-26</time>
+  	<time datetime="2018-06-26T13:20:24.606Z" itemprop="datePublished">2018-06-26</time>
 </a>
 
          -->
@@ -174,43 +167,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="HTTP-头信息"><a href="#HTTP-头信息" class="headerlink" title="HTTP 头信息"></a>HTTP 头信息</h3><p><img src="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/images/http-request.png?hl=zh-cn" alt="img1"></p>
-<p>服务器返回一个 1024 字节的响应，指示客户端将其缓存最多 120 秒，并提供一个验证令牌<code>x234dff</code>，可在响应过期后用来检查资源是否被修改。</p>
-<h3 id="Etag"><a href="#Etag" class="headerlink" title="Etag"></a>Etag</h3><ul>
-<li>服务器使用 ETag HTTP 标头传递验证令牌</li>
-<li>验证令牌可实现高效的资源更新检查：资源未发生变化时不会传送任何数据</li>
+        <p>快速排序使用分治法（Divide and conquer）策略来把一个序列（list）分为两个子序列（sub-lists）</p>
+<p><strong>步骤为：</strong></p>
+<ul>
+<li>1.基准: 从数列中挑出一个元素，称为”基准”（pivot）</li>
+<li>2.分区: 重新排序数列，所有元素比基准值小的放在基准前面，所有元素比基准值大的放在基准的后面（相同的数可以到任一边），在这个分区结束之后，该基准就处于数列的中间位置。这个称为分区（partition）操作</li>
+<li>3.递归: 递归地（recursive）把小于基准值元素的子数列和大于基准值元素的子数列排序</li>
+<li>4.结束条件: 递归的最底部情形，是数列的大小是零或一，也就是永远都已经被排序好了。</li>
 </ul>
-<p>ETag 旨在解决的问题: 服务器生成并返回的随机令牌通常是文件内容的哈希值或某个其他指纹。客户端不需要了解指纹是如何生成的，只需在下一次请求时将其发送至服务器。如果指纹仍然相同，则表示资源未发生变化，您就可以跳过下载。</p>
-<p><img src="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/images/http-cache-control.png?hl=zh-cn" alt="img2"></p>
-<p>客户端自动在 <code>If-None-Match</code> HTTP 请求标头内提供 ETag 令牌。服务器根据当前资源核对令牌。如果它未发生变化，服务器将返回 <code>304 Not Modified</code> 响应，告知浏览器缓存中的响应未发生变化，可以再延用 120 秒。</p>
-<h3 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h3><ul>
-<li>每个资源都可通过 Cache-Control HTTP 标头定义其缓存策略</li>
-<li>Cache-Control 指令控制谁在什么条件下可以缓存响应以及可以缓存多久</li>
-</ul>
-<p><strong>no-cache</strong></p>
-<p>no-cache 表示必须先与服务器确认返回的响应是否发生了变化，然后才能使用该响应来满足后续对同一网址的请求。</p>
-<p>no-cache 会发起往返通信来验证缓存的响应，但如果资源未发生变化，则可避免下载。</p>
-<p><strong>no-store</strong></p>
-<p>直接禁止浏览器以及所有中间缓存存储任何版本的返回响应。</p>
-<p><strong>public</strong></p>
-<p>非必须。</p>
-<p><strong>private</strong></p>
-<p>通常只为单个用户缓存，因此不允许任何中间缓存对其进行缓存。</p>
-<p><strong>max-age</strong></p>
-<p>指令指定从请求的时间开始，允许获取的响应被重用的最长时间。</p>
-<h3 id="Cache-Control-策略图"><a href="#Cache-Control-策略图" class="headerlink" title="Cache-Control 策略图"></a>Cache-Control 策略图</h3><p><img src="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/images/http-cache-decision-tree.png?hl=zh-cn" alt="img"></p>
-<h3 id="检查缓存清单"><a href="#检查缓存清单" class="headerlink" title="检查缓存清单"></a>检查缓存清单</h3><ul>
-<li>使用一致的网址</li>
-<li>确保服务器提供验证令牌 (ETag)</li>
-<li>确定中间缓存可以缓存哪些资源</li>
-<li>为每个资源确定最佳缓存周期</li>
-<li>确定最适合您的网站的缓存层次结构</li>
-<li>最大限度减少搅动</li>
-</ul>
-<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul>
-<li><a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching?hl=zh-cn#cache-control" target="_blank" rel="noopener">HTTP 缓存
-</a></li>
-</ul>
+<p>虽然一直递归下去，但是这个算法总会结束，因为在每次的迭代（iteration）中，它至少会把一个元素放到它最后的位置去。</p>
+<p>在简单的伪代码中，此算法可以被表示为：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">quicksort</span>(<span class="params">q</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> list less, pivotList, greater</span><br><span class="line">  <span class="keyword">if</span> length(q) &lt;= <span class="number">1</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> q</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    select a pivot value pivot <span class="keyword">from</span> q</span><br><span class="line">    <span class="keyword">for</span> each x <span class="keyword">in</span> q except the pivot element</span><br><span class="line">    <span class="keyword">if</span> x &lt; pivot then add x to less</span><br><span class="line">    <span class="keyword">if</span> &gt;= pivot then add x to greater</span><br><span class="line">    add pivot to pivotList</span><br><span class="line">    <span class="keyword">return</span> concatenate(quicksort(less), pivotList, quicksort(greater))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>数组第一次排序操作图</strong></p>
+<p><img src="https://github.com/slogeor/images/blob/master/fe/2018/06/03.png?raw=true" alt="img"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.quickSort = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> len = <span class="keyword">this</span>.length;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (len &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.slice(<span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> left = [];</span><br><span class="line">  <span class="keyword">const</span> right = [];</span><br><span class="line">  <span class="keyword">const</span> mid = [<span class="keyword">this</span>[<span class="number">0</span>]];</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">    <span class="keyword">const</span> val = <span class="keyword">this</span>[i];</span><br><span class="line">    <span class="keyword">this</span>[i] &lt; mid[<span class="number">0</span>] ? left.push(val) : right.push(val);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> left.quickSort().concat(mid.concat(right.quickSort()));</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">5</span>, <span class="number">3</span>, <span class="number">7</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">9</span>, <span class="number">8</span>, <span class="number">6</span>, <span class="number">2</span>];</span><br><span class="line">arr = arr.quickSort();</span><br></pre></td></tr></table></figure>
 
       
 
@@ -219,7 +189,7 @@
     <div class="article-info article-info-index">
       
       <a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.610Z" itemprop="datePublished">2018-06-26</time>
+  	<time datetime="2018-06-26T13:20:24.606Z" itemprop="datePublished">2018-06-26</time>
 </a>
 
       <div style="float: right; overflow: hidden;">
@@ -229,7 +199,7 @@
 		<ul class="article-tag-list">
 			
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">cache</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
         		</li>
       		
 		</ul>
@@ -250,7 +220,11 @@
 
 
       </div>
-      <!--  -->
+      <!-- 
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/26/base/algorithm/quicksort/">展开全文 >></a>
+        </p>
+       -->
 
       
       <div class="clearfix"></div>
@@ -258,36 +232,15 @@
   </div>
 </article>
 
-  
-<nav id="article-nav">
-  
-    <a href="/2018/06/26/base/cache/cache-mixin/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          HTTP 缓存 -- 大杂烩
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2018/06/26/base/array/js_array/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">数组特殊用法</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 
 
 
   
-
   
-
-  
-
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+    </nav>
   
 
 
@@ -310,8 +263,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
-		isPost: true,
+		isHome: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

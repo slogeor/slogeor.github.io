@@ -234,6 +234,70 @@
 
 
   
+    <article id="post-question/hexo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/26/question/hexo/">hexo入门</a>
+    </h1>
+  
+
+        
+        <!-- <a href="javascript:void(0)" class="archive-article-date">
+  	<time datetime="2018-06-26T13:20:24.634Z" itemprop="datePublished">2018-06-26</time>
+</a>
+
+         -->
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="javascript:void(0)" class="archive-article-date">
+  	<time datetime="2018-06-26T13:20:24.634Z" itemprop="datePublished">2018-06-26</time>
+</a>
+
+      <div style="float: right; overflow: hidden;">
+        
+
+        
+
+      </div>
+      <!-- 
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/26/question/hexo/">展开全文 >></a>
+        </p>
+       -->
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-question/brew" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -768,100 +832,6 @@
 
 
   
-    <article id="post-elasticsearch/es-base-search" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/26/elasticsearch/es-base-search/">Elasticsearch 基础查询语法</a>
-    </h1>
-  
-
-        
-        <!-- <a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.621Z" itemprop="datePublished">2018-06-26</time>
-</a>
-
-         -->
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="模糊匹配-match"><a href="#模糊匹配-match" class="headerlink" title="模糊匹配: match"></a>模糊匹配: match</h3><ul>
-<li>查询条件: entry_key 等于 app.scan.go_where</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">GET _search</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"query"</span>: &#123;</span><br><span class="line">    <span class="string">"match"</span>: &#123;</span><br><span class="line">      <span class="string">"entry_key.keyword"</span>: <span class="string">"app.scan.go_where"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="过滤搜索-filter"><a href="#过滤搜索-filter" class="headerlink" title="过滤搜索: filter"></a>过滤搜索: filter</h3><ul>
-<li>查询条件: 1.entry_key 等于 app.scan.go_where，2.new_entry_detail 包含 barcode 或者 qrCode，同时满足</li>
-<li>过滤条件: app_version 在 6010041 和 6010042 之间</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">GET /fe_app_log<span class="number">-2018.04</span><span class="number">.30</span>/fe_app_log/_search</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"query"</span>: &#123;</span><br><span class="line">    <span class="string">"bool"</span>: &#123;</span><br><span class="line">      <span class="string">"must"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="string">"match"</span>: &#123;</span><br><span class="line">            <span class="string">"entry_key.keyword"</span>: <span class="string">"app.scan.go_where"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="string">"match_phrase"</span>: &#123;</span><br><span class="line">            <span class="string">"new_entry_detail"</span>: <span class="string">"barcode qrCode"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      ],</span><br><span class="line">      <span class="string">"filter"</span>: &#123;</span><br><span class="line">        <span class="string">"range"</span>: &#123;</span><br><span class="line">          <span class="string">"app_version"</span>: &#123;</span><br><span class="line">            <span class="string">"gte"</span>:  ,</span><br><span class="line">            <span class="string">"lte"</span>: <span class="number">6010042</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="短语搜索-match-phrase"><a href="#短语搜索-match-phrase" class="headerlink" title="短语搜索: match_phrase"></a>短语搜索: match_phrase</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">GET /fe_app_log<span class="number">-2018.04</span><span class="number">.30</span>/fe_app_log/_search</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"query"</span>: &#123;</span><br><span class="line">    <span class="string">"match_phrase"</span>: &#123;</span><br><span class="line">      <span class="string">"new_entry_detail"</span>: <span class="string">"barcode=12"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>短语搜索和检索的区别是:</p>
-<ul>
-<li>短语搜索是<code>精确匹配</code>一系列单词或者短语</li>
-<li>检索会默认拆词、根据相关性得分降序返回结果</li>
-</ul>
-<h4 id="分组-aggs"><a href="#分组-aggs" class="headerlink" title="分组: aggs"></a>分组: aggs</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">GET /fe_app_log<span class="number">-2018.04</span><span class="number">.30</span>/fe_app_log/_search</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"query"</span>: &#123;</span><br><span class="line">    <span class="string">"bool"</span>: &#123;</span><br><span class="line">      <span class="string">"must"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="string">"match"</span>: &#123;</span><br><span class="line">            <span class="string">"entry_key.keyword"</span>: <span class="string">"app.scan.go_where"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="string">"match"</span>: &#123;</span><br><span class="line">            <span class="string">"new_entry_detail"</span>: <span class="string">"barcode"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      ],</span><br><span class="line">      <span class="string">"filter"</span>: &#123;</span><br><span class="line">        <span class="string">"range"</span>: &#123;</span><br><span class="line">          <span class="string">"app_version"</span>: &#123;</span><br><span class="line">            <span class="string">"gte"</span>: <span class="number">6010041</span>,</span><br><span class="line">            <span class="string">"lte"</span>: <span class="number">6010042</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"aggs"</span>: &#123;</span><br><span class="line">    <span class="string">"userId"</span>: &#123;</span><br><span class="line">      <span class="string">"terms"</span>: &#123;</span><br><span class="line">        <span class="string">"field"</span>: <span class="string">"user_id.keyword"</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="string">"aggs"</span>: &#123;</span><br><span class="line">        <span class="string">"version"</span>: &#123;</span><br><span class="line">          <span class="string">"terms"</span>: &#123;</span><br><span class="line">            <span class="string">"field"</span>: <span class="string">"app_version.keyword"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>检索结果按 user_id.keyword 和 app_version 进行分组，支持分级汇总</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.621Z" itemprop="datePublished">2018-06-26</time>
-</a>
-
-      <div style="float: right; overflow: hidden;">
-        
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list">
-			
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">es</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        
-	<!-- <div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			
-        		<li class="article-tag-list-item">
-        			<a href="/categories/elasticsearch/" class="article-tag-list-link color4">elasticsearch</a>
-        		</li>
-      		
-		</ul>
-	</div> -->
-
-
-      </div>
-      <!-- 
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/26/elasticsearch/es-base-search/">展开全文 >></a>
-        </p>
-       -->
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
     <article id="post-elasticsearch/es-command" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -971,20 +941,20 @@
 
 
   
-    <article id="post-base/secure/xss" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-elasticsearch/es-base-search" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/26/base/secure/xss/">XSS</a>
+      <a class="article-title" href="/2018/06/26/elasticsearch/es-base-search/">Elasticsearch 基础查询语法</a>
     </h1>
   
 
         
         <!-- <a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.620Z" itemprop="datePublished">2018-06-26</time>
+  	<time datetime="2018-06-26T13:20:24.621Z" itemprop="datePublished">2018-06-26</time>
 </a>
 
          -->
@@ -992,27 +962,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>对于将要放置到 HTML 页面 body 里的不可信数据，进行 HTML 编码已经足够防御 XSS 攻击，甚至将 HTML 编码后的数据放到 HTML 标签的属性（attribute）里也不会产生 XSS 漏洞（但前提是这些属性都正确使用了引号）。</p>
-<p>如果将 HTML 编码后的数据放到了 <code>&lt;Script /&gt;</code> 标签里的任何地方，甚至是 HTML 标签的事件处理属性里、或者是放到了CSS、URL 里，XSS 攻击依然会发生，在这种情况下，HTML 编码不起作用。</p>
-<h3 id="准则"><a href="#准则" class="headerlink" title="准则"></a>准则</h3><p><strong>1.不要在页面中插入任何不可信数据，除非这些数已经据根据下面几个原则进行了编码</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;…不要在这里直接插入不可信数据…&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;!– …不要在这里直接插入不可信数据… –&gt;</span></span><br><span class="line"><span class="regexp">&lt;div 不要在这里直接插入不可信数据="…"&gt;&lt;/</span>div&gt;</span><br><span class="line">&lt;div name=<span class="string">"…不要在这里直接插入不可信数据…"</span>&gt;&lt;/div&gt;</span><br><span class="line">&lt;a 不要在这里直接插入不可信数据 href=<span class="string">"…"</span>&gt;&lt;/a&gt;</span><br><span class="line">&lt;style&gt;…不要在这里直接插入不可信数据…&lt;<span class="regexp">/style&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong>2.将不可信数据插入到 HTML 标签之间时，对这些数据进行 HTML Entity 编码</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;…插入不可信数据前，对其进行HTML Entity编码…&lt;<span class="regexp">/body&gt;</span></span><br><span class="line"><span class="regexp">&lt;div&gt;…插入不可信数据前，对其进行HTML Entity编码…&lt;/</span>div&gt;</span><br><span class="line">&lt;p&gt;…插入不可信数据前，对其进行HTML Entity编码…&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">以此类推，往其他HTML标签之间插入不可信数据前，对其进行 HTML Entity 编码</span></span><br></pre></td></tr></table></figure>
-<p><strong>3.将不可信数据插入到 HTML 属性里时，对这些数据进行 HTML 属性编码</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div attr=<span class="string">"…插入不可信数据前，进行HTML属性编码…"</span>&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>4.将不可信数据插入到 SCRIPT 里时，对这些数据进行 SCRIPT 编码</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(<span class="string">"…插入不可信数据前，进行JavaScript编码…"</span>)&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;x = "…插入不可信数据前，进行JavaScript编码…"&lt;/</span>script&gt;</span><br><span class="line">&lt;div onmouseover=<span class="string">"x='…插入不可信数据前，进行JavaScript编码…'"</span>&lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure>
-<p>特别需要注意在XSS防御中，有些 JavaScript 函数是极度危险的，就算对不可信数据进行 JavaScript 编码，也依然会产生 XSS 漏洞</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;<span class="built_in">window</span>.setInterval(<span class="string">"…就算对不可信数据进行了JavaScript编码，这里依然会有XSS漏洞…"</span>);&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>5.将不可信数据插入到 style 属性里时，对这些数据进行 CSS 编码</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;selector &#123; <span class="attr">property</span> : <span class="string">" …插入不可信数据前，进行CSS编码… "</span>&#125; &lt;<span class="regexp">/style&gt;</span></span><br><span class="line"><span class="regexp">&lt;span style=" property : …插入不可信数据前，进行CSS编码… "&gt;…&lt;/</span>span&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>6.将不可信数据插入到 HTML URL 里时，对这些数据进行 URL 编码</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">"http://www.abcd.com?param=…插入不可信数据前，进行URL编码…"</span>&gt; Link Content &lt;<span class="regexp">/a&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong>7.使用富文本时，使用XSS规则引擎进行编码过滤</strong></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>由于很多地方都可能产生 XSS 漏洞，而且每个地方产生漏洞的原因又各有不同，所以对于 XSS 防御来说，我们需要在正确的地方做正确的事情，即根据不可信数据将要被放置到的地方进行相应的编码。</p>
-<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul>
-<li><a href="http://blog.jobbole.com/47372/" target="_blank" rel="noopener">http://blog.jobbole.com/47372/</a></li>
+        <h3 id="模糊匹配-match"><a href="#模糊匹配-match" class="headerlink" title="模糊匹配: match"></a>模糊匹配: match</h3><ul>
+<li>查询条件: entry_key 等于 app.scan.go_where</li>
 </ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">GET _search</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"query"</span>: &#123;</span><br><span class="line">    <span class="string">"match"</span>: &#123;</span><br><span class="line">      <span class="string">"entry_key.keyword"</span>: <span class="string">"app.scan.go_where"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="过滤搜索-filter"><a href="#过滤搜索-filter" class="headerlink" title="过滤搜索: filter"></a>过滤搜索: filter</h3><ul>
+<li>查询条件: 1.entry_key 等于 app.scan.go_where，2.new_entry_detail 包含 barcode 或者 qrCode，同时满足</li>
+<li>过滤条件: app_version 在 6010041 和 6010042 之间</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">GET /fe_app_log<span class="number">-2018.04</span><span class="number">.30</span>/fe_app_log/_search</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"query"</span>: &#123;</span><br><span class="line">    <span class="string">"bool"</span>: &#123;</span><br><span class="line">      <span class="string">"must"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="string">"match"</span>: &#123;</span><br><span class="line">            <span class="string">"entry_key.keyword"</span>: <span class="string">"app.scan.go_where"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="string">"match_phrase"</span>: &#123;</span><br><span class="line">            <span class="string">"new_entry_detail"</span>: <span class="string">"barcode qrCode"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      ],</span><br><span class="line">      <span class="string">"filter"</span>: &#123;</span><br><span class="line">        <span class="string">"range"</span>: &#123;</span><br><span class="line">          <span class="string">"app_version"</span>: &#123;</span><br><span class="line">            <span class="string">"gte"</span>:  ,</span><br><span class="line">            <span class="string">"lte"</span>: <span class="number">6010042</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="短语搜索-match-phrase"><a href="#短语搜索-match-phrase" class="headerlink" title="短语搜索: match_phrase"></a>短语搜索: match_phrase</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">GET /fe_app_log<span class="number">-2018.04</span><span class="number">.30</span>/fe_app_log/_search</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"query"</span>: &#123;</span><br><span class="line">    <span class="string">"match_phrase"</span>: &#123;</span><br><span class="line">      <span class="string">"new_entry_detail"</span>: <span class="string">"barcode=12"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>短语搜索和检索的区别是:</p>
+<ul>
+<li>短语搜索是<code>精确匹配</code>一系列单词或者短语</li>
+<li>检索会默认拆词、根据相关性得分降序返回结果</li>
+</ul>
+<h4 id="分组-aggs"><a href="#分组-aggs" class="headerlink" title="分组: aggs"></a>分组: aggs</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">GET /fe_app_log<span class="number">-2018.04</span><span class="number">.30</span>/fe_app_log/_search</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"query"</span>: &#123;</span><br><span class="line">    <span class="string">"bool"</span>: &#123;</span><br><span class="line">      <span class="string">"must"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="string">"match"</span>: &#123;</span><br><span class="line">            <span class="string">"entry_key.keyword"</span>: <span class="string">"app.scan.go_where"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="string">"match"</span>: &#123;</span><br><span class="line">            <span class="string">"new_entry_detail"</span>: <span class="string">"barcode"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      ],</span><br><span class="line">      <span class="string">"filter"</span>: &#123;</span><br><span class="line">        <span class="string">"range"</span>: &#123;</span><br><span class="line">          <span class="string">"app_version"</span>: &#123;</span><br><span class="line">            <span class="string">"gte"</span>: <span class="number">6010041</span>,</span><br><span class="line">            <span class="string">"lte"</span>: <span class="number">6010042</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"aggs"</span>: &#123;</span><br><span class="line">    <span class="string">"userId"</span>: &#123;</span><br><span class="line">      <span class="string">"terms"</span>: &#123;</span><br><span class="line">        <span class="string">"field"</span>: <span class="string">"user_id.keyword"</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="string">"aggs"</span>: &#123;</span><br><span class="line">        <span class="string">"version"</span>: &#123;</span><br><span class="line">          <span class="string">"terms"</span>: &#123;</span><br><span class="line">            <span class="string">"field"</span>: <span class="string">"app_version.keyword"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>检索结果按 user_id.keyword 和 app_version 进行分组，支持分级汇总</p>
 
       
 
@@ -1021,7 +987,7 @@
     <div class="article-info article-info-index">
       
       <a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.620Z" itemprop="datePublished">2018-06-26</time>
+  	<time datetime="2018-06-26T13:20:24.621Z" itemprop="datePublished">2018-06-26</time>
 </a>
 
       <div style="float: right; overflow: hidden;">
@@ -1031,7 +997,7 @@
 		<ul class="article-tag-list">
 			
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">secure</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">es</a>
         		</li>
       		
 		</ul>
@@ -1044,7 +1010,7 @@
 		<ul class="article-tag-list">
 			
         		<li class="article-tag-list-item">
-        			<a href="/categories/base/" class="article-tag-list-link color5">base</a>
+        			<a href="/categories/elasticsearch/" class="article-tag-list-link color4">elasticsearch</a>
         		</li>
       		
 		</ul>
@@ -1054,7 +1020,7 @@
       </div>
       <!-- 
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/26/base/secure/xss/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/06/26/elasticsearch/es-base-search/">展开全文 >></a>
         </p>
        -->
 
@@ -1071,7 +1037,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 

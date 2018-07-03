@@ -6,20 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://slogeor.github.io">
-  <title>React JSX | 一枝秋雨</title>
+  <title>支付宝小程序开发经验@01 | 一枝秋雨</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1const element = &amp;lt;h1&amp;gt;hello, world&amp;lt;/h1&amp;gt;; 它是 JavaScript 的一种扩展语法，具有 JavaScript 的全部能力。 1.JSX中嵌入表达式 可以用花括号把任意的 JavaScript 表达式嵌入到 JSX 中 12345const element = (  &amp;lt;h1&amp;gt;    hello, &amp;#123; format">
-<meta name="keywords" content="jsx">
+  <meta name="description" content="支付宝小程序抓包使用支付宝扫描链接二维码，二维码内容为（https://ds.alipay.com/fd-ipddfamm/index.html），点击关闭安全代理按钮，关闭安全代理，通过此方式可在手机上进行抓包。  配置扫码拦截  1.二维码地址: 配置的url http://slogeor.com/f不能存在重定向，如果存在，配置的时候可以先把 ng 重定向关闭，配置好后再打开。 2.下载校">
+<meta name="keywords" content="aliapp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React JSX">
-<meta property="og:url" content="http://slogeor.github.io/2018/06/26/react/jsx/index.html">
+<meta property="og:title" content="支付宝小程序开发经验@01">
+<meta property="og:url" content="http://slogeor.github.io/2018/07/03/aliapp/tips/index.html">
 <meta property="og:site_name" content="一枝秋雨">
-<meta property="og:description" content="1const element = &amp;lt;h1&amp;gt;hello, world&amp;lt;/h1&amp;gt;; 它是 JavaScript 的一种扩展语法，具有 JavaScript 的全部能力。 1.JSX中嵌入表达式 可以用花括号把任意的 JavaScript 表达式嵌入到 JSX 中 12345const element = (  &amp;lt;h1&amp;gt;    hello, &amp;#123; format">
+<meta property="og:description" content="支付宝小程序抓包使用支付宝扫描链接二维码，二维码内容为（https://ds.alipay.com/fd-ipddfamm/index.html），点击关闭安全代理按钮，关闭安全代理，通过此方式可在手机上进行抓包。  配置扫码拦截  1.二维码地址: 配置的url http://slogeor.com/f不能存在重定向，如果存在，配置的时候可以先把 ng 重定向关闭，配置好后再打开。 2.下载校">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-26T13:20:24.637Z">
+<meta property="og:image" content="https://github.com/slogeor/images/blob/master/fe/2018/06/04.png?raw=true">
+<meta property="og:image" content="https://github.com/slogeor/images/blob/master/fe/2018/06/05.png?raw=true">
+<meta property="og:updated_time" content="2018-07-03T02:06:17.877Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="React JSX">
-<meta name="twitter:description" content="1const element = &amp;lt;h1&amp;gt;hello, world&amp;lt;/h1&amp;gt;; 它是 JavaScript 的一种扩展语法，具有 JavaScript 的全部能力。 1.JSX中嵌入表达式 可以用花括号把任意的 JavaScript 表达式嵌入到 JSX 中 12345const element = (  &amp;lt;h1&amp;gt;    hello, &amp;#123; format">
+<meta name="twitter:title" content="支付宝小程序开发经验@01">
+<meta name="twitter:description" content="支付宝小程序抓包使用支付宝扫描链接二维码，二维码内容为（https://ds.alipay.com/fd-ipddfamm/index.html），点击关闭安全代理按钮，关闭安全代理，通过此方式可在手机上进行抓包。  配置扫码拦截  1.二维码地址: 配置的url http://slogeor.com/f不能存在重定向，如果存在，配置的时候可以先把 ng 重定向关闭，配置好后再打开。 2.下载校">
+<meta name="twitter:image" content="https://github.com/slogeor/images/blob/master/fe/2018/06/04.png?raw=true">
   
     <link rel="alternative" href="/atom.xml" title="一枝秋雨" type="application/atom+xml">
   
@@ -149,20 +152,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-react/jsx" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-aliapp/tips" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      React JSX
+      支付宝小程序开发经验@01
     </h1>
   
 
         
         <!-- <a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.637Z" itemprop="datePublished">2018-06-26</time>
+  	<time datetime="2018-07-03T02:06:17.877Z" itemprop="datePublished">2018-07-03</time>
 </a>
 
          -->
@@ -170,26 +173,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = &lt;h1&gt;hello, world&lt;/h1&gt;;</span><br></pre></td></tr></table></figure>
-<p>它是 JavaScript 的一种扩展语法，具有 JavaScript 的全部能力。</p>
-<p><strong>1.JSX中嵌入表达式</strong></p>
-<p>可以用花括号把任意的 JavaScript 表达式嵌入到 JSX 中</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = (</span><br><span class="line">  &lt;h1&gt;</span><br><span class="line">    hello, &#123; formatName(user) &#125;!</span><br><span class="line">  &lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">);</span></span><br></pre></td></tr></table></figure>
-<p><strong>2. JSX 也是一个表达式</strong></p>
-<p>babel 编译后，JSX 表达式就变成了常规的 JavaScript 对象，我们可以将 JSX 赋给变量。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getGreeting</span>(<span class="params">user</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (user) &#123;</span><br><span class="line">    <span class="keyword">return</span> &lt;h1&gt;Hello, &#123; formatName(user) &#125;!&lt;/h1&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> &lt;h1&gt;Hello, React!&lt;/h1&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>3.JSX指定属性值</strong></p>
-<p>可以用双引号指定字符串字面量作为属性值，也可以使用花括号嵌入 JavaScript 表达式作为属性值</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = &lt;img tabIndex="0" src="user.img" user=&#123;formatName(user)&#125; /&gt;;</span><br></pre></td></tr></table></figure>
-<p><strong>4.JSX防止注入攻击</strong></p>
-<p>默认情况下，在渲染之前，React DOM 会格式化(escape)JSX中的所有值，从而保证用户无法注入任何应用之外的代码。</p>
-<p><strong>5.JSX表示对象</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = (</span><br><span class="line">  &lt;h1 className=<span class="string">"h1"</span>&gt;</span><br><span class="line">    Hello, &#123;formatName(user)&#125;!</span><br><span class="line">  &lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">);</span></span><br></pre></td></tr></table></figure>
-<p>babel编译后</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">"use strict"</span>;</span><br><span class="line"><span class="keyword">var</span> element = React.createElement(</span><br><span class="line">  <span class="string">"h1"</span>,</span><br><span class="line">  &#123; <span class="attr">className</span>: <span class="string">"h1"</span> &#125;,</span><br><span class="line">  <span class="string">"Hello, "</span>,</span><br><span class="line">  formatName(user),</span><br><span class="line">  <span class="string">"!"</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>简化的结构</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = &#123;</span><br><span class="line">  type: <span class="string">'h1'</span>,</span><br><span class="line">  props: &#123;</span><br><span class="line">    className: <span class="string">'h1'</span>,</span><br><span class="line">    children: <span class="string">`Hello, <span class="subst">$&#123;formatName(user)&#125;</span>!`</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>JSX 更接近 JavaScript，所以 React DOM 使用驼峰命名约定。</p>
+        <h3 id="支付宝小程序抓包"><a href="#支付宝小程序抓包" class="headerlink" title="支付宝小程序抓包"></a>支付宝小程序抓包</h3><p>使用支付宝扫描链接二维码，二维码内容为（<code>https://ds.alipay.com/fd-ipddfamm/index.html</code>），点击<code>关闭安全代理</code>按钮，关闭安全代理，通过此方式可在手机上进行抓包。</p>
+<p><img src="https://github.com/slogeor/images/blob/master/fe/2018/06/04.png?raw=true" alt="img"></p>
+<h3 id="配置扫码拦截"><a href="#配置扫码拦截" class="headerlink" title="配置扫码拦截"></a>配置扫码拦截</h3><p><img src="https://github.com/slogeor/images/blob/master/fe/2018/06/05.png?raw=true" alt="img"></p>
+<ul>
+<li>1.二维码地址: 配置的url <code>http://slogeor.com/f</code>不能存在重定向，如果存在，配置的时候可以先把 ng 重定向关闭，配置好后再打开。</li>
+<li>2.下载校验文件</li>
+<li>3.存放校验文件: 将校验文件放到<code>http://slogeor.com/</code>对应服务器的根目录</li>
+<li>4.点击这里: 如果验证通过，就可以配置拦截 url 进入的页面，否则不能配置页面</li>
+</ul>
 
       
 
@@ -198,7 +190,7 @@
     <div class="article-info article-info-index">
       
       <a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.637Z" itemprop="datePublished">2018-06-26</time>
+  	<time datetime="2018-07-03T02:06:17.877Z" itemprop="datePublished">2018-07-03</time>
 </a>
 
       <div style="float: right; overflow: hidden;">
@@ -208,7 +200,7 @@
 		<ul class="article-tag-list">
 			
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jsx</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">aliapp</a>
         		</li>
       		
 		</ul>
@@ -221,7 +213,7 @@
 		<ul class="article-tag-list">
 			
         		<li class="article-tag-list-item">
-        			<a href="/categories/react/" class="article-tag-list-link color1">react</a>
+        			<a href="/categories/base/" class="article-tag-list-link color5">base</a>
         		</li>
       		
 		</ul>
@@ -240,11 +232,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/06/26/react/life-cycle/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/07/03/react/diff/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          React 生命周期
+          React Diff
         
       </div>
     </a>

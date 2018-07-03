@@ -146,20 +146,20 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-base/css/box-model" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-base/data-type/data-type-equal" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/26/base/css/box-model/">CSS盒模型</a>
+      <a class="article-title" href="/2018/06/26/base/data-type/data-type-equal/">数据类型的比较</a>
     </h1>
   
 
         
         <!-- <a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.612Z" itemprop="datePublished">2018-06-26</time>
+  	<time datetime="2018-06-26T13:20:24.613Z" itemprop="datePublished">2018-06-26</time>
 </a>
 
          -->
@@ -167,26 +167,36 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><b>描述</b></p>
-<p>文档中的每个元素被描绘为矩形盒子，确定其大小，属性，比如颜色、背景、边框，及其位置是渲染引擎的目标</p>
-<p>盒模型就是确定元素内容所占用的空间，盒子有四个边界：外边距边界 margin edge、边框边界 border edge、内边距边界 padding edge 与 内容边界 content edge</p>
-<p><b>W3C盒模型</b></p>
-<p>在W3C盒模型中，一个块级元素的总宽度按照如下的方程式计算：</p>
-<p>总宽度 = margin-left + border-left + padding-left + width + padding-right + border-right + margin-right</p>
-<p>对于高度也使用同样的计算方法，但为了简便起见从现在开始只说 width</p>
-<p><b>IE盒模型</b></p>
-<p>IE盒模型的计算方式和W3C的很相似，但有一点是非常不同的，就是填充和边框并不被包含在计算的范围内</p>
-<p>总宽度 = margin-left + width + margin-right</p>
-<p><b>盒模型图</b></p>
-<p><img src="https://github.com/slogeor/images/blob/master/fe/2018/04/box_models.gif?raw=true" alt="box_models"></p>
-<p><b>box-sizing</b></p>
-<p>box-sizing 是 CSS3 的一个属性，与盒模型有着千丝万缕的联系</p>
-<p><strong>属性值: content-box</strong></p>
-<p>padding 和 border 不被包含在定义的 width 和 height 之内。对象的实际宽度等于设置的 width 值和border、padding 之和，即Element width = width + border + padding 此属性表现为标准模式下的盒模型</p>
-<p><img src="https://github.com/slogeor/images/blob/master/fe/2018/04/content-box-2.png?raw=true" alt="content-box-2"></p>
-<p><strong>属性值: border-box</strong></p>
-<p>padding 和 border 被包含在定义的 width 和 height 之内。对象的实际宽度就等于设置的 width 值，即使定义有 border 和 padding 也不会改变对象的实际宽度，即 Element width = width 此属性表现为怪异模式下的盒模型</p>
-<p><img src="https://github.com/slogeor/images/blob/master/fe/2018/04/border-box-2.png?raw=true" alt="border-box-2"></p>
+        <h3 id="VS"><a href="#VS" class="headerlink" title="== VS ==="></a>== VS ===</h3><p>== 两边值类型不同的时候，要先进行类型转换，再比较。<br>=== 不做类型转换，类型不同的一定不等。</p>
+<p><strong>==比较</strong></p>
+<p>如果两个类型相同，进行 === 比较；如果类型不等，会先隐式转换然后在进行 == 比较。</p>
+<p>基本数据类型之间的比较</p>
+<p>null、 undefined、数字、字符串、布尔</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">null</span> == <span class="literal">undefined</span>  <span class="comment">// true</span></span><br><span class="line"><span class="number">1</span> == <span class="string">'1'</span>          <span class="comment">// true</span></span><br><span class="line"><span class="number">1</span> == <span class="literal">true</span>         <span class="comment">// true</span></span><br><span class="line"><span class="literal">true</span> == <span class="number">1</span>         <span class="comment">// true</span></span><br><span class="line"><span class="number">2</span> == <span class="literal">true</span>         <span class="comment">// false</span></span><br><span class="line"><span class="literal">false</span> == <span class="number">0</span>        <span class="comment">// true</span></span><br><span class="line"><span class="number">0</span> == <span class="literal">false</span>        <span class="comment">// true</span></span><br><span class="line"><span class="literal">false</span> == <span class="string">'false'</span>  <span class="comment">// false</span></span><br><span class="line"><span class="literal">true</span> == <span class="string">'false'</span>   <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>布尔类型和数字或字符类型两个等号比较时，true 会先转换成数值 1， false 会先转换成数值 0，然后在进行比较。</p>
+<p><strong>复杂数据类型与基本数据类型之间的比较</strong></p>
+<p>复杂数据类型会先转换成基础类型的值再比较。</p>
+<p>复杂数据类型换成基础类型: 利用它的 <code>toString</code> 或者 <code>valueOf</code> 方法，转换时会 <code>valueOf</code> 优先于 <code>toString</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  toString: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="number">1</span>&#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj == <span class="literal">true</span>   <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj1 = &#123;</span><br><span class="line">  toString: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="string">'2'</span>&#125;,</span><br><span class="line">  valueOf: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="string">'1'</span>&#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj1 == <span class="string">'1'</span>     <span class="comment">// true</span></span><br><span class="line">obj1 == <span class="string">'2'</span>    <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line">obj1 == obj   <span class="comment">// flase</span></span><br></pre></td></tr></table></figure>
+<h3 id="null-undefined"><a href="#null-undefined" class="headerlink" title="null  undefined"></a>null  undefined</h3><p>undefined 和 null 出现在判断条件语句中，会被自动转为 false；相等运算比较也认为两者相等。</p>
+<p>null 是一个表示 <code>无</code> 的对象，转为数值时为 0</p>
+<p>undefined 是一个表示 <code>无</code> 的原始值，转为数值时为NaN</p>
+<p>null 表示 <code>没有对象</code>，即该处不应该有值，典型用法是：</p>
+<ul>
+<li>1.作为函数的参数，表示该函数的参数不是对象</li>
+<li>2.作为对象原型链的终点</li>
+</ul>
+<p>undefined 表示 <code>缺少值</code>，就是此处应该有一个值，但是还没有定义，典型用法是：</p>
+<ul>
+<li>1.变量被声明了，但没有赋值时，就等于undefined</li>
+<li>2.调用函数时，应该提供的参数没有提供，该参数等于undefined</li>
+<li>3.对象没有赋值的属性，该属性的值为 undefined</li>
+<li>4.函数没有返回值时，默认返回 undefined</li>
+</ul>
+<h3 id="toString-VS-valueOf"><a href="#toString-VS-valueOf" class="headerlink" title="toString VS valueOf"></a>toString VS valueOf</h3><p>如果对象的 toString 和 valueOf 都存在的时候，对象转换为字符串的时候会优先考虑 <code>valueOf</code> 方法，对象输出操作会优先考虑 <code>toString</code> 方法，整体来看 <code>valueOf</code> 优于 <code>toString</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  toString: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="string">'12'</span>; &#125;,</span><br><span class="line">  valueOf: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="string">'10'</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">alert(obj);           <span class="comment">//12  toString</span></span><br><span class="line">alert(<span class="string">''</span> + obj);      <span class="comment">//10  valueOf</span></span><br><span class="line">alert(+obj);          <span class="comment">//10  valueOf</span></span><br><span class="line">alert(<span class="built_in">String</span>(obj));   <span class="comment">//12 toString</span></span><br><span class="line">alert(<span class="built_in">Number</span>(obj));   <span class="comment">//10 valueOf</span></span><br><span class="line">alert(obj == <span class="string">'10'</span>);   <span class="comment">//true valueOf</span></span><br><span class="line">alert(obj === <span class="string">'12'</span>);  <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+<h3 id="测试题"><a href="#测试题" class="headerlink" title="测试题"></a>测试题</h3><p>定义变量 a，执行下面代码能够输出 <code>我走进来了</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(a == <span class="number">1</span> &amp;&amp; a == <span class="number">2</span> &amp;&amp; a == <span class="number">3</span>)&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"我走进来了"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -195,7 +205,7 @@
     <div class="article-info article-info-index">
       
       <a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.612Z" itemprop="datePublished">2018-06-26</time>
+  	<time datetime="2018-06-26T13:20:24.613Z" itemprop="datePublished">2018-06-26</time>
 </a>
 
       <div style="float: right; overflow: hidden;">
@@ -205,7 +215,7 @@
 		<ul class="article-tag-list">
 			
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -228,7 +238,7 @@
       </div>
       <!-- 
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/26/base/css/box-model/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/06/26/base/data-type/data-type-equal/">展开全文 >></a>
         </p>
        -->
 
@@ -323,6 +333,103 @@
       <!-- 
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/06/26/base/css/css_box-sizing/">展开全文 >></a>
+        </p>
+       -->
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-base/css/box-model" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/26/base/css/box-model/">CSS盒模型</a>
+    </h1>
+  
+
+        
+        <!-- <a href="javascript:void(0)" class="archive-article-date">
+  	<time datetime="2018-06-26T13:20:24.612Z" itemprop="datePublished">2018-06-26</time>
+</a>
+
+         -->
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><b>描述</b></p>
+<p>文档中的每个元素被描绘为矩形盒子，确定其大小，属性，比如颜色、背景、边框，及其位置是渲染引擎的目标</p>
+<p>盒模型就是确定元素内容所占用的空间，盒子有四个边界：外边距边界 margin edge、边框边界 border edge、内边距边界 padding edge 与 内容边界 content edge</p>
+<p><b>W3C盒模型</b></p>
+<p>在W3C盒模型中，一个块级元素的总宽度按照如下的方程式计算：</p>
+<p>总宽度 = margin-left + border-left + padding-left + width + padding-right + border-right + margin-right</p>
+<p>对于高度也使用同样的计算方法，但为了简便起见从现在开始只说 width</p>
+<p><b>IE盒模型</b></p>
+<p>IE盒模型的计算方式和W3C的很相似，但有一点是非常不同的，就是填充和边框并不被包含在计算的范围内</p>
+<p>总宽度 = margin-left + width + margin-right</p>
+<p><b>盒模型图</b></p>
+<p><img src="https://github.com/slogeor/images/blob/master/fe/2018/04/box_models.gif?raw=true" alt="box_models"></p>
+<p><b>box-sizing</b></p>
+<p>box-sizing 是 CSS3 的一个属性，与盒模型有着千丝万缕的联系</p>
+<p><strong>属性值: content-box</strong></p>
+<p>padding 和 border 不被包含在定义的 width 和 height 之内。对象的实际宽度等于设置的 width 值和border、padding 之和，即Element width = width + border + padding 此属性表现为标准模式下的盒模型</p>
+<p><img src="https://github.com/slogeor/images/blob/master/fe/2018/04/content-box-2.png?raw=true" alt="content-box-2"></p>
+<p><strong>属性值: border-box</strong></p>
+<p>padding 和 border 被包含在定义的 width 和 height 之内。对象的实际宽度就等于设置的 width 值，即使定义有 border 和 padding 也不会改变对象的实际宽度，即 Element width = width 此属性表现为怪异模式下的盒模型</p>
+<p><img src="https://github.com/slogeor/images/blob/master/fe/2018/04/border-box-2.png?raw=true" alt="border-box-2"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="javascript:void(0)" class="archive-article-date">
+  	<time datetime="2018-06-26T13:20:24.612Z" itemprop="datePublished">2018-06-26</time>
+</a>
+
+      <div style="float: right; overflow: hidden;">
+        
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list">
+			
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+        
+	<!-- <div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			
+        		<li class="article-tag-list-item">
+        			<a href="/categories/base/" class="article-tag-list-link color5">base</a>
+        		</li>
+      		
+		</ul>
+	</div> -->
+
+
+      </div>
+      <!-- 
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/26/base/css/box-model/">展开全文 >></a>
         </p>
        -->
 
@@ -731,6 +838,93 @@
 
 
   
+    <article id="post-base/array/js_array" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/26/base/array/js_array/">数组特殊用法</a>
+    </h1>
+  
+
+        
+        <!-- <a href="javascript:void(0)" class="archive-article-date">
+  	<time datetime="2018-06-26T13:20:24.609Z" itemprop="datePublished">2018-06-26</time>
+</a>
+
+         -->
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>判断数组的方法</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 方法1</span></span><br><span class="line"><span class="built_in">Array</span>.isArray([]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法2</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call([]) === <span class="string">"[object Array]"</span></span><br></pre></td></tr></table></figure>
+<p><strong>类数组转换数据的方法</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.slice.call(arg);</span><br></pre></td></tr></table></figure>
+<p><strong>slice</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arrayObject.slice(start, end)</span><br><span class="line"></span><br><span class="line">返回一个新的数组，包含从 start 到 end （不包括该元素）的 arrayObject 中的元素。</span><br><span class="line"></span><br><span class="line">该方法并不会修改数组，而是返回一个子数组。</span><br></pre></td></tr></table></figure>
+<p><strong>splice</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">arrayObject.splice(index,howmany,item1,.....,itemX)</span><br><span class="line"></span><br><span class="line">index: 规定添加/删除项目的位置，使用负数可从数组结尾处规定位置</span><br><span class="line"></span><br><span class="line">howmany: 要删除的项目数量, 如果设置为 <span class="number">0</span>，则不会删除项目</span><br><span class="line"></span><br><span class="line">item1, ..., <span class="attr">itemX</span>: 向数组添加的新项目</span><br><span class="line"></span><br><span class="line">返回是数据发生变化的数据</span><br><span class="line"></span><br><span class="line">该方法会改变原始数组</span><br></pre></td></tr></table></figure>
+<p><strong>想数组固定位置添加数据</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @desc 判断数组类型</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArray</span>(<span class="params">param</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(param) === <span class="string">'[object Array]'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @desc  在数组的指定位置插入数据</span></span><br><span class="line"><span class="comment"> * @param   a1        原始数组</span></span><br><span class="line"><span class="comment"> * @param   a2        需要插入的数据</span></span><br><span class="line"><span class="comment"> * @param   index     插入的具体位置</span></span><br><span class="line"><span class="comment"> * @return  res       数组</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertArr</span>(<span class="params">a1, a2, index</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!isArray(a1)) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> insert = a2;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (!isArray(a1)) &#123;</span><br><span class="line">    inser = [a2];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> len = a1.length;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 结束位置插入</span></span><br><span class="line">  <span class="keyword">if</span> (len &lt;= index) &#123;</span><br><span class="line">    <span class="keyword">return</span> a1.concat(a2);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 起始位置插入</span></span><br><span class="line">  <span class="keyword">if</span> (index === <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> a2.concat(a1);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 中间位置插入</span></span><br><span class="line">  a1.splice(index - <span class="number">1</span>, <span class="number">0</span>, ...a2);</span><br><span class="line">  <span class="keyword">return</span> a1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="javascript:void(0)" class="archive-article-date">
+  	<time datetime="2018-06-26T13:20:24.609Z" itemprop="datePublished">2018-06-26</time>
+</a>
+
+      <div style="float: right; overflow: hidden;">
+        
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list">
+			
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">array</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+        
+	<!-- <div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			
+        		<li class="article-tag-list-item">
+        			<a href="/categories/base/" class="article-tag-list-link color5">base</a>
+        		</li>
+      		
+		</ul>
+	</div> -->
+
+
+      </div>
+      <!-- 
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/26/base/array/js_array/">展开全文 >></a>
+        </p>
+       -->
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-base/arrow_function" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -807,93 +1001,6 @@
       <!-- 
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/06/26/base/arrow_function/">展开全文 >></a>
-        </p>
-       -->
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-base/array/js_array" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/26/base/array/js_array/">数组特殊用法</a>
-    </h1>
-  
-
-        
-        <!-- <a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.609Z" itemprop="datePublished">2018-06-26</time>
-</a>
-
-         -->
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>判断数组的方法</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 方法1</span></span><br><span class="line"><span class="built_in">Array</span>.isArray([]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法2</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call([]) === <span class="string">"[object Array]"</span></span><br></pre></td></tr></table></figure>
-<p><strong>类数组转换数据的方法</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.slice.call(arg);</span><br></pre></td></tr></table></figure>
-<p><strong>slice</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arrayObject.slice(start, end)</span><br><span class="line"></span><br><span class="line">返回一个新的数组，包含从 start 到 end （不包括该元素）的 arrayObject 中的元素。</span><br><span class="line"></span><br><span class="line">该方法并不会修改数组，而是返回一个子数组。</span><br></pre></td></tr></table></figure>
-<p><strong>splice</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">arrayObject.splice(index,howmany,item1,.....,itemX)</span><br><span class="line"></span><br><span class="line">index: 规定添加/删除项目的位置，使用负数可从数组结尾处规定位置</span><br><span class="line"></span><br><span class="line">howmany: 要删除的项目数量, 如果设置为 <span class="number">0</span>，则不会删除项目</span><br><span class="line"></span><br><span class="line">item1, ..., <span class="attr">itemX</span>: 向数组添加的新项目</span><br><span class="line"></span><br><span class="line">返回是数据发生变化的数据</span><br><span class="line"></span><br><span class="line">该方法会改变原始数组</span><br></pre></td></tr></table></figure>
-<p><strong>想数组固定位置添加数据</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @desc 判断数组类型</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArray</span>(<span class="params">param</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(param) === <span class="string">'[object Array]'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @desc  在数组的指定位置插入数据</span></span><br><span class="line"><span class="comment"> * @param   a1        原始数组</span></span><br><span class="line"><span class="comment"> * @param   a2        需要插入的数据</span></span><br><span class="line"><span class="comment"> * @param   index     插入的具体位置</span></span><br><span class="line"><span class="comment"> * @return  res       数组</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertArr</span>(<span class="params">a1, a2, index</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!isArray(a1)) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> insert = a2;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (!isArray(a1)) &#123;</span><br><span class="line">    inser = [a2];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> len = a1.length;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 结束位置插入</span></span><br><span class="line">  <span class="keyword">if</span> (len &lt;= index) &#123;</span><br><span class="line">    <span class="keyword">return</span> a1.concat(a2);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 起始位置插入</span></span><br><span class="line">  <span class="keyword">if</span> (index === <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> a2.concat(a1);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 中间位置插入</span></span><br><span class="line">  a1.splice(index - <span class="number">1</span>, <span class="number">0</span>, ...a2);</span><br><span class="line">  <span class="keyword">return</span> a1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.609Z" itemprop="datePublished">2018-06-26</time>
-</a>
-
-      <div style="float: right; overflow: hidden;">
-        
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list">
-			
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">array</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        
-	<!-- <div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			
-        		<li class="article-tag-list-item">
-        			<a href="/categories/base/" class="article-tag-list-link color5">base</a>
-        		</li>
-      		
-		</ul>
-	</div> -->
-
-
-      </div>
-      <!-- 
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/26/base/array/js_array/">展开全文 >></a>
         </p>
        -->
 
@@ -1142,100 +1249,9 @@
 
 
   
-    <article id="post-base/algorithm/quicksort" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/26/base/algorithm/quicksort/">快速排序</a>
-    </h1>
-  
-
-        
-        <!-- <a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.606Z" itemprop="datePublished">2018-06-26</time>
-</a>
-
-         -->
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>快速排序使用分治法（Divide and conquer）策略来把一个序列（list）分为两个子序列（sub-lists）</p>
-<p><strong>步骤为：</strong></p>
-<ul>
-<li>1.基准: 从数列中挑出一个元素，称为”基准”（pivot）</li>
-<li>2.分区: 重新排序数列，所有元素比基准值小的放在基准前面，所有元素比基准值大的放在基准的后面（相同的数可以到任一边），在这个分区结束之后，该基准就处于数列的中间位置。这个称为分区（partition）操作</li>
-<li>3.递归: 递归地（recursive）把小于基准值元素的子数列和大于基准值元素的子数列排序</li>
-<li>4.结束条件: 递归的最底部情形，是数列的大小是零或一，也就是永远都已经被排序好了。</li>
-</ul>
-<p>虽然一直递归下去，但是这个算法总会结束，因为在每次的迭代（iteration）中，它至少会把一个元素放到它最后的位置去。</p>
-<p>在简单的伪代码中，此算法可以被表示为：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">quicksort</span>(<span class="params">q</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> list less, pivotList, greater</span><br><span class="line">  <span class="keyword">if</span> length(q) &lt;= <span class="number">1</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> q</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    select a pivot value pivot <span class="keyword">from</span> q</span><br><span class="line">    <span class="keyword">for</span> each x <span class="keyword">in</span> q except the pivot element</span><br><span class="line">    <span class="keyword">if</span> x &lt; pivot then add x to less</span><br><span class="line">    <span class="keyword">if</span> &gt;= pivot then add x to greater</span><br><span class="line">    add pivot to pivotList</span><br><span class="line">    <span class="keyword">return</span> concatenate(quicksort(less), pivotList, quicksort(greater))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>数组第一次排序操作图</strong></p>
-<p><img src="https://github.com/slogeor/images/blob/master/fe/2018/06/03.png?raw=true" alt="img"></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.quickSort = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> len = <span class="keyword">this</span>.length;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (len &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.slice(<span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> left = [];</span><br><span class="line">  <span class="keyword">const</span> right = [];</span><br><span class="line">  <span class="keyword">const</span> mid = [<span class="keyword">this</span>[<span class="number">0</span>]];</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">    <span class="keyword">const</span> val = <span class="keyword">this</span>[i];</span><br><span class="line">    <span class="keyword">this</span>[i] &lt; mid[<span class="number">0</span>] ? left.push(val) : right.push(val);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> left.quickSort().concat(mid.concat(right.quickSort()));</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">5</span>, <span class="number">3</span>, <span class="number">7</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">9</span>, <span class="number">8</span>, <span class="number">6</span>, <span class="number">2</span>];</span><br><span class="line">arr = arr.quickSort();</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.606Z" itemprop="datePublished">2018-06-26</time>
-</a>
-
-      <div style="float: right; overflow: hidden;">
-        
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list">
-			
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        
-	<!-- <div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			
-        		<li class="article-tag-list-item">
-        			<a href="/categories/base/" class="article-tag-list-link color5">base</a>
-        		</li>
-      		
-		</ul>
-	</div> -->
-
-
-      </div>
-      <!-- 
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/26/base/algorithm/quicksort/">展开全文 >></a>
-        </p>
-       -->
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
     </nav>
   
 

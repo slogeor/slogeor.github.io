@@ -6,22 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://slogeor.github.io">
-  <title>React 生命周期 | 一枝秋雨</title>
+  <title>Archives | 一枝秋雨</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="React 组件的生命周期方法都可以被分割成四个阶段：初始化、挂载阶段（mounting）、更新阶段、卸载阶段（unmounting） 生命周期时序图  生命周期流程图  生命周期函数 1.getDefaultProps 每个组件的实例只会调用一次，该组件类的后续所有实例都不在调用，props 不允许修改的。 2.getInitalState 每个组件的实例只会调用一次，用来初始化每个实例的 st">
-<meta property="og:type" content="article">
-<meta property="og:title" content="React 生命周期">
-<meta property="og:url" content="http://slogeor.github.io/2018/06/26/react/life-cycle/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="一枝秋雨">
+<meta property="og:url" content="http://slogeor.github.io/archives/page/5/index.html">
 <meta property="og:site_name" content="一枝秋雨">
-<meta property="og:description" content="React 组件的生命周期方法都可以被分割成四个阶段：初始化、挂载阶段（mounting）、更新阶段、卸载阶段（unmounting） 生命周期时序图  生命周期流程图  生命周期函数 1.getDefaultProps 每个组件的实例只会调用一次，该组件类的后续所有实例都不在调用，props 不允许修改的。 2.getInitalState 每个组件的实例只会调用一次，用来初始化每个实例的 st">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://github.com/slogeor/images/blob/master/fe/2018/04/react-life-cycle.png?raw=true">
-<meta property="og:image" content="https://github.com/slogeor/images/blob/master/fe/2018/04/react-life-cycle-flow.jpg?raw=true">
-<meta property="og:updated_time" content="2018-06-26T13:20:24.639Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="React 生命周期">
-<meta name="twitter:description" content="React 组件的生命周期方法都可以被分割成四个阶段：初始化、挂载阶段（mounting）、更新阶段、卸载阶段（unmounting） 生命周期时序图  生命周期流程图  生命周期函数 1.getDefaultProps 每个组件的实例只会调用一次，该组件类的后续所有实例都不在调用，props 不允许修改的。 2.getInitalState 每个组件的实例只会调用一次，用来初始化每个实例的 st">
-<meta name="twitter:image" content="https://github.com/slogeor/images/blob/master/fe/2018/04/react-life-cycle.png?raw=true">
+<meta name="twitter:title" content="一枝秋雨">
   
     <link rel="alternative" href="/atom.xml" title="一枝秋雨" type="application/atom+xml">
   
@@ -151,134 +144,76 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-react/life-cycle" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      React 生命周期
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="javascript:void(0)" class="archive-article-date">
+  	<time datetime="2018-06-26T13:20:24.606Z" itemprop="datePublished">2018-06-26</time>
+</a>
+
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/06/26/base/algorithm/quicksort/">快速排序</a>
     </h1>
   
 
-        
-        <!-- <a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.637Z" itemprop="datePublished">2018-06-26</time>
-</a>
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list">
+			
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
-         -->
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>React 组件的生命周期方法都可以被分割成四个阶段：初始化、挂载阶段（mounting）、更新阶段、卸载阶段（unmounting）</p>
-<p><b>生命周期时序图</b></p>
-<p><img src="https://github.com/slogeor/images/blob/master/fe/2018/04/react-life-cycle.png?raw=true" alt="03"></p>
-<p><b>生命周期流程图</b></p>
-<p><img src="https://github.com/slogeor/images/blob/master/fe/2018/04/react-life-cycle-flow.jpg?raw=true" alt="04"></p>
-<p><b>生命周期函数</b></p>
-<p><strong>1.getDefaultProps</strong></p>
-<p>每个组件的实例只会调用一次，该<code>组件类</code>的后续所有实例都不在调用，props 不允许修改的。</p>
-<p><strong>2.getInitalState</strong></p>
-<p>每个组件的实例只会调用一次，用来初始化每个实例的 <code>state</code>，在这个方法内可以访问到 <code>props</code>。props 和 state 的主要区分是 state 只存在组件内部，props 在所有实例中共享。</p>
-<p>getDefaultProps 和 getInitalState 的区别是：getDefaultProps 对于<code>组件类</code>来说只调用一次，而 getInitalState 对于每个<code>组件</code>的实例只会调用一次。</p>
-<p>每次修改 <code>state</code>，都会触发 <code>render</code> 方法。</p>
-<p><strong>3.componentWillMount</strong></p>
-<p>该方法只会调用一次，是在 render 方法调用之前修改 state 最后一次机会。</p>
-<p>在此方法内调用 setState 将不会导致重复render。</p>
-<p><strong>4.render</strong></p>
-<p>该方法会创建一个虚拟的 DOM，用来标识组件的输出，render 方法是唯一必须的方法。</p>
-<p>render 方法需要满足下面几点。</p>
-<ul>
-<li>只能通过 this.props 和 this.state 访问数据，不能修改他们</li>
-<li>可以返回 null、false 或者任何 React 组件</li>
-<li>只能出现一个顶级组件，不能返回一组元素</li>
-<li>不能改变组件的状态</li>
-<li>不能修改 DOM 的输出</li>
-</ul>
-<p><strong>5.componentDidMount</strong></p>
-<p>该方法调用时，已经渲染出真实的 DOM，可以访问到真实的 DOM。在渲染真实 DOM 之前，组件是存在内存中的一种数据结构，即虚拟 DOM。</p>
-<p>如果要从组件获取真实的 DOM 节点，可以通过 ref 属性获取。</p>
-<p><strong>6.componentWillReceiveProps</strong></p>
-<p>组件的 props 属性可以通过父组件来更改，这时 componentWillReceiveProps 会被调用，在这个方法里可以更新 state。</p>
-<p>在此方法内调用 setState 将不会导致重复render，还可以通过 this.props 访问旧的属性。</p>
-<p><strong>7.shouldComponentUpdate</strong></p>
-<p>如果确定组件的 props 或者 state 的改变不需要重新渲染，可以在这个方法里返回 false 来阻止组件的重新渲染。</p>
-<p><strong>8.componentWillUpdate</strong></p>
-<p>在组件接收到了新的 props 或者 state 即将进行渲染前，componentWillUpdate 会被调用。在此方法里不能更新 props 或者 state。</p>
-<p><strong>9.componentDidUpdate</strong></p>
-<p>在组件重新渲染之后，componentDidUpdate 方法会被调用。可以在这个方法里访问并修改 DOM。</p>
-<p><strong>10.componentWillUnmount</strong></p>
-<p>组件卸载之前会调用 componentWillUnmount，在此方法里可以做一些清理和销毁工作。</p>
-<p><b>总结</b></p>
-<p>能使用 <code>setState</code> 的生命周期函数 componentWillMount、componentDidMount、componentWillReceiveProps。</p>
 
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.637Z" itemprop="datePublished">2018-06-26</time>
-</a>
-
-      <div style="float: right; overflow: hidden;">
-        
-
-        
+          
 	<!-- <div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			
         		<li class="article-tag-list-item">
-        			<a href="/categories/react/" class="article-tag-list-link color1">react</a>
+        			<a href="/categories/base/" class="article-tag-list-link color5">base</a>
         		</li>
       		
 		</ul>
 	</div> -->
 
 
-      </div>
-      <!--  -->
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/06/26/react/state-props/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          React 状态和属性
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/06/26/react/jsx/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">React JSX</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
+    </div></section>
   
 
-  
-
-  
-
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/page/4/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><span class="page-number current">5</span>
+    </nav>
   
 
 
@@ -302,8 +237,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

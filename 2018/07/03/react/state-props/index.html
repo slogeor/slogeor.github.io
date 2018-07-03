@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://slogeor.github.io">
-  <title>Tag: state | 一枝秋雨</title>
+  <title>React 状态和属性 | 一枝秋雨</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="一枝秋雨">
-<meta property="og:url" content="http://slogeor.github.io/tags/state/index.html">
+  <meta name="description" content="渲染元素元素 元素(Elements)是 React 应用中最小的构建部件，React 元素是一个普通的对象。 1const element = &amp;lt;h1&amp;gt;hello, react!&amp;lt;/h1&amp;gt;; 元素渲染 渲染 React 元素到根节点，只需要将元素传递给 ReactDOM.render() 方法。 12345const element = &amp;lt;h1&amp;gt;hello,">
+<meta name="keywords" content="react">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React 状态和属性">
+<meta property="og:url" content="http://slogeor.github.io/2018/07/03/react/state-props/index.html">
 <meta property="og:site_name" content="一枝秋雨">
+<meta property="og:description" content="渲染元素元素 元素(Elements)是 React 应用中最小的构建部件，React 元素是一个普通的对象。 1const element = &amp;lt;h1&amp;gt;hello, react!&amp;lt;/h1&amp;gt;; 元素渲染 渲染 React 元素到根节点，只需要将元素传递给 ReactDOM.render() 方法。 12345const element = &amp;lt;h1&amp;gt;hello,">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-03T02:06:17.880Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一枝秋雨">
+<meta name="twitter:title" content="React 状态和属性">
+<meta name="twitter:description" content="渲染元素元素 元素(Elements)是 React 应用中最小的构建部件，React 元素是一个普通的对象。 1const element = &amp;lt;h1&amp;gt;hello, react!&amp;lt;/h1&amp;gt;; 元素渲染 渲染 React 元素到根节点，只需要将元素传递给 ReactDOM.render() 方法。 12345const element = &amp;lt;h1&amp;gt;hello,">
   
     <link rel="alternative" href="/atom.xml" title="一枝秋雨" type="application/atom+xml">
   
@@ -144,54 +149,113 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-react/state-props" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="javascript:void(0)" class="archive-article-date">
-  	<time datetime="2018-06-26T13:20:24.639Z" itemprop="datePublished">2018-06-26</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/26/react/state-props/">React 状态和属性</a>
+    <h1 class="article-title" itemprop="name">
+      React 状态和属性
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <!-- <a href="javascript:void(0)" class="archive-article-date">
+  	<time datetime="2018-07-03T02:06:17.880Z" itemprop="datePublished">2018-07-03</time>
+</a>
+
+         -->
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="渲染元素"><a href="#渲染元素" class="headerlink" title="渲染元素"></a>渲染元素</h3><p><strong>元素</strong></p>
+<p>元素(Elements)是 React 应用中最小的构建部件，React 元素是一个普通的对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = &lt;h1&gt;hello, react!&lt;/h1&gt;;</span><br></pre></td></tr></table></figure>
+<p><strong>元素渲染</strong></p>
+<p>渲染 React 元素到根节点，只需要将元素传递给 <code>ReactDOM.render()</code> 方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = &lt;h1&gt;hello, react!&lt;/h1&gt;;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">  element,</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">'root'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>React 元素是不可变的，一旦创建，就不能再修改子元素或任何属性。一个元素就像电影里的一帧，表示特定时间的 UI。</p>
+<h3 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h3><p>从定义上来讲，组件就像 JavaScript 的函数，接受任何的输入(props)，并返回 React 元素。</p>
+<p>从功能上来讲，我们可以将 UI 拆分成许多独立、可复用的小组件，从而达到复用的目的。</p>
+<p><strong>函数式组件</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Test</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;h1&gt;hello, &#123;props.name&#125;&lt;h1&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>类组件</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;h1&gt;hello, &#123;<span class="keyword">this</span>.props.name&#125;&lt;h1&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong></p>
+<ul>
+<li>组件名称应该大写字母开头</li>
+<li>组件必须返回一个单独的根元素</li>
+<li>应该从组件本身角度出发来命名 props</li>
+</ul>
+<p><b>渲染组件</b></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = &lt;Welcome name="Sara" /&gt;;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">  element,</span><br><span class="line">  document.getElementById('root')</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p><b>Props 是只读的</b></p>
+<p>React 组件都是纯函数，并禁止修改其自身 props。应用的 UI 总是动态的，并且随时有可能改变。<code>state</code>允许 React 组件在不违反上面规则的情况下，根据用户操作，网络响应，来动态的改变其输出。</p>
+<p><b>函数式组件转化类组件</b></p>
+<ul>
+<li>1.创建一个继承自 React.Component 类的 ES6 class</li>
+<li>2.添加一个空的 render 方法</li>
+<li>3.将原函数中的内容移到 render 方法中</li>
+<li>4.将 render 方法中的 props 换成 this.props</li>
+</ul>
+<p><b>类组件渲染步骤</b></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Clock</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">      date: <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    <span class="keyword">this</span>.timerID = setInterval(</span><br><span class="line">      () =&gt; <span class="keyword">this</span>.tick(),</span><br><span class="line">      <span class="number">1000</span></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentWillUnmount() &#123;</span><br><span class="line">    clearInterval(<span class="keyword">this</span>.timerID);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  tick() &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">      date: <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;h1&gt;Hello, world!&lt;/h1&gt;</span><br><span class="line">        &lt;h2&gt;It is &#123;<span class="keyword">this</span>.state.date.toLocaleTimeString()&#125;.&lt;<span class="regexp">/h2&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;Clock /&gt;,</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">'root'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>1.组件<code>&lt;Clock /&gt;</code> 被传入 <code>RectDOM.render()</code> 时，React 会调用 <code>Clock</code> 组件的构造函数</li>
+<li>2.React 调用 <code>Clock</code> 组件的 <code>render()</code> 方法，从该方法返回的内容中得到要显示的内容，然后 React 更新 DOM</li>
+<li>3.当<code>Clock</code>输出被插入到 DOM 中，React 调用 <code>componentDidMount()</code> 生命周期钩子，在该方法里调用 <code>tick()</code></li>
+<li>4.<code>tick()</code> 通过 <code>setState()</code> 方法更新 <code>state</code>状态，随即再次调用 <code>render()</code>方法</li>
+<li>5.<code>Clock</code>组件从 DOM 中移除，React 会调用 <code>componentWillUnmount()</code>生命周期钩子</li>
+</ul>
+<p><b>state</b></p>
+<p><code>state</code> 和 <code>props</code> 类似，都是私有的，并且由组件本身完全控制。</p>
+<p><code>this.props</code> 由 React 本身设定, 而 <code>this.state</code> 具有特殊的含义，但如果需要存储一些不用于视觉输出的内容，则可以手动向类中添加额外的字段。</p>
+<p><b>正确使用 state 状态</b></p>
+<p><strong>1.不能直接修改state</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// error</span></span><br><span class="line"><span class="keyword">this</span>.state.msg = <span class="string">'hello world'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// right</span></span><br><span class="line"><span class="keyword">this</span>.setState(&#123;</span><br><span class="line">  msg: <span class="string">'hello world'</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>2.state更新可能是异步的</strong></p>
+<p><code>this.props</code> 和 <code>this.state</code> 可能是异步更新的，不能依赖他们的值计算下一个值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// error</span></span><br><span class="line"><span class="keyword">this</span>.setState(&#123;</span><br><span class="line">  count: <span class="keyword">this</span>.state.counter + <span class="keyword">this</span>.props.increment,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// right</span></span><br><span class="line"><span class="keyword">this</span>.setState(<span class="function">(<span class="params">prevState, props</span>) =&gt;</span>&#123;</span><br><span class="line">  counter: prevState.count + props.increment,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><code>setState()</code> 可以接受一个函数，接受该函数的第一个参数是当前状态，第二个参数是更新后的值</p>
+<p><strong>3.state更新会被合并</strong></p>
+<p>调用 <code>setState()</code>，React 将合并你提供的对象到当前的状态中，此合并是浅合并。</p>
+<p><b>数据向下流动</b></p>
+<p>任何 state 始终由某个特定组件所有，并且从该 state 导出的任何数据或 UI 只能影响树中 “下方” 的组件。数据传递同常是从上到下或者单向传递。</p>
+<p>如果把组件树想象为 props 的瀑布，所有组件的 state 就如同一个额外的水源汇入主流，并只能随着主流的方向向下流动</p>
+<p><b>更新组件的方法</b></p>
+<ul>
+<li>ReactDOM.render</li>
+<li>props</li>
+<li>state</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="javascript:void(0)" class="archive-article-date">
+  	<time datetime="2018-07-03T02:06:17.880Z" itemprop="datePublished">2018-07-03</time>
+</a>
+
+      <div style="float: right; overflow: hidden;">
+        
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list">
 			
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">state</a>
-        		</li>
-      		
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">props</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-          
+        
 	<!-- <div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -204,17 +268,46 @@
 	</div> -->
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+      <!--  -->
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/07/03/wxapp/tips/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          微信小程序开发经验@01
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2018/07/03/react/life-cycle/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">React 生命周期</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -237,9 +330,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		root: "/",
