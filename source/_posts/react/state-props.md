@@ -2,8 +2,7 @@
 title: React 状态和属性
 categories: react
 tags: #文章標籤 可以省略
-  - state
-  - props
+  - react
 ---
 
 ### 渲染元素

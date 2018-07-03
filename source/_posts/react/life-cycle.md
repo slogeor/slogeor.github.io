@@ -2,6 +2,7 @@
 title: React 生命周期
 categories: react
 tags: #文章標籤 可以省略
+  - react
 ---
 
 React 组件的生命周期方法都可以被分割成四个阶段：初始化、挂载阶段（mounting）、更新阶段、卸载阶段（unmounting）

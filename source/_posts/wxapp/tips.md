@@ -1,8 +1,8 @@
 ---
-title: 小程序开发经验@01
+title: 微信小程序开发经验@01
 categories: base
 tags: #文章標籤 可以省略
-  - 小程序
+  - wxapp
 ---
 
 ### 生成小程序二维码

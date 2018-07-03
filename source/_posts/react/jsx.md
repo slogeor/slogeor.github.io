@@ -2,7 +2,7 @@
 title: React JSX
 categories: react
 tags: #文章標籤 可以省略
-  - jsx
+  - react
 ---
 
 ```js
